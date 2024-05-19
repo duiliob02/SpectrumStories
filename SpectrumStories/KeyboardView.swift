@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  KeyboardView.swift
 //  SpectrumStories
 //
 //  Created by Duilio Barbato on 17/05/24.
@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct KeyboardView: View {
     @State private var nameText : String = ""
+    @State private var showAlert = false
+    @AppStorage("userName") var userName = ""
     
     var body: some View {
         ZStack{
@@ -16,27 +18,46 @@ struct ContentView: View {
                 .fill(Color.giallio)
                 .ignoresSafeArea()
             VStack {
+                Spacer()
                 Text("WHAT'S YOUR NAME?")
-                    .font(.custom("Coiny-Regular", size: 60))
+                    .font(.custom(Constants.font, size: 60))
                     .foregroundStyle(.white)
                 
                 HStack {
                     TextField("", text: $nameText)
-                        .font(.custom("Coiny-Regular", size: 50))
+                        .font(.custom(Constants.font, size: 50))
                         .frame(width: UIScreen.main.bounds.width / 2, height: 80)
                         .padding()
                         .background {
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(.white)
                         }
-                    Button(action: {}, label: {Image(systemName: "circle.fill")})
+                        .padding(.trailing)
+                    Button(action: {
+                        showAlert.toggle()
+                        userName = nameText
+                    }, label: {
+                        Image(systemName: "arrow.right")
+                            .font(.system(size: 60))
+                            .bold()
+                            .foregroundStyle(.white)
+                            .padding(.vertical)
+                            .padding(.horizontal, 30)
+                            .background{
+                                RoundedRectangle(cornerRadius: 10.0)
+                                    .frame(height: 110)
+                                
+                            }
+                    })
                 }
-                .padding(.bottom)
+                .padding(.bottom, 100)
+                
                 
                 ForEach(0..<KeyBoard._keyboard.count, id: \.self) { rowIndex in
                     HStack {
                         ForEach(0..<KeyBoard._keyboard[rowIndex].count, id: \.self) { columnIndex in
                             Text(KeyBoard._keyboard[rowIndex][columnIndex])
+                                .font(.custom(Constants.font, size: 50))
                                 .padding()
                                 .background(Color.giallio2)
                                 .cornerRadius(5)
@@ -49,20 +70,35 @@ struct ContentView: View {
                 
                 HStack{
                     Rectangle()
-                        .fill(Color.gray.opacity(0.2))
-                        .frame(width: UIScreen.main.bounds.width / 3.5, height: 50)
+                        .fill(Color.giallio2)
+                        .frame(width: UIScreen.main.bounds.width / 3.5, height: 75)
                         .onTapGesture {
                             nameText.append(" ")
                         }
                     Image(systemName: "delete.left")
+                        .font(.system(size: 40))
+                        .bold()
                         .padding()
-                        .background(Color.gray.opacity(0.2))
+                        .background(Color.giallio2)
                         .onTapGesture {
                             _ = nameText.popLast()
                         }
+                    
                 }
                 .padding()
+                Spacer()
             }
+        }
+        .navigationBarBackButtonHidden()
+        .alert("Confirm", isPresented: $showAlert) {
+            Button("Cancel", role: .cancel) {
+                
+            }
+            NavigationLink("OK") {
+                EmptyView()
+            }
+        } message: {
+            Text("Are you sure about your choice?")
         }
     }
 }
@@ -77,5 +113,5 @@ struct KeyBoard {
 
 
 #Preview {
-    ContentView()
+    KeyboardView()
 }
