@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GenderView: View {
     @State private var showAlert = false
-    @AppStorage("gender") var gender = 0
+    @AppStorage("gender") var gender : Int = 0
     
     var body: some View {
         ZStack{
