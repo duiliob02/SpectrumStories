@@ -25,6 +25,7 @@ struct KeyboardView: View {
                 
                 HStack {
                     TextField("", text: $nameText)
+                        .disabled(true)
                         .font(.custom(Constants.font, size: 50))
                         .frame(width: UIScreen.main.bounds.width / 2, height: 80)
                         .padding()
