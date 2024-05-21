@@ -11,7 +11,7 @@ import SwiftUI
 struct SpectrumStoriesApp: App {
     var body: some Scene {
         WindowGroup {
-            LogoView()
+            QuizView(gender: 0, quiz: Quiz(imgM: "QuizJoyM", imgF: "", domanda: "CIAO", risposte: ["FELICITA'" : 1, "RABBIA" : 0, "TRISTEZZA" : 0]))
         }
     }
 }
