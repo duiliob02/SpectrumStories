@@ -30,6 +30,7 @@ struct QuizView: View {
                             .multilineTextAlignment(.center)
                             .padding(.bottom)
                         ForEach(quiz.risposte.sorted(by: >), id: \.key) {                                key, value in
+                            // todo : pop up per giusto o sbagliato
                             Text(key)
                                 .font(.custom(Constants.font, size: 40))
                                 .padding()
