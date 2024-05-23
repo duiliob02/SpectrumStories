@@ -1,0 +1,24 @@
+{
+  "originHash" : "f85ec36b55e6c3bddc4e146f4fc996922ed5c902954d863dc9c50577c5aae4c9",
+  "pins" : [
+    {
+      "identity" : "popupview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/PopupView.git",
+      "state" : {
+        "revision" : "397b9f2c6675b27cdc94814e9ec388b132b453d5",
+        "version" : "2.9.2"
+      }
+    },
+    {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/siteline/swiftui-introspect",
+      "state" : {
+        "revision" : "7dc5b287f8040e4ad5038739850b758e78f77808",
+        "version" : "1.1.4"
+      }
+    }
+  ],
+  "version" : 3
+}
