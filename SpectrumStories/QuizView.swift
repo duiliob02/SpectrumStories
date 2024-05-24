@@ -13,9 +13,12 @@ struct QuizView: View {
     var quiz : Quiz
     @State private var showPopUp1 = false
     @State private var showPopUp0 = false
+    @ScaledMetric(relativeTo: .body) var scaledPadding: CGFloat = 20
     
     var body: some View {
         GeometryReader { geo in
+            let w = geo.size.width
+            let h = geo.size.height
             ZStack{
                 Rectangle()
                     .fill(.orangio)
@@ -25,62 +28,71 @@ struct QuizView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: geo.size.width/2)
-                        .padding(.leading, 100)
+                        
                     Spacer()
                     VStack {
                         Text(quiz.domanda)
-                            .font(.custom(Constants.font, size: 60))
+                            .font(.custom(Constants.font, size: 60, relativeTo: .largeTitle))
                             .multilineTextAlignment(.center)
-                            .padding(.bottom)
+                            .padding(.bottom, scaledPadding)
                         ForEach(quiz.risposte.sorted(by: >), id: \.key) {                                key, value in
                             // todo : pop up per giusto o sbagliato
                             Button {
-                                if value==0 {
-                                    showPopUp0=true
-                                } else {
-                                    showPopUp1 = true
+                                withAnimation(.smooth) {
+                                    if value==0 {
+                                        showPopUp0.toggle()
+                                    } else {
+                                        showPopUp1.toggle()
+                                    }
                                 }
                             } label: {
                                 Text(key)
                                     .font(.custom(Constants.font, size: 40))
                                     .foregroundStyle(.black)
-                                    .padding()
+                                    .padding(scaledPadding)
                                     .background(
                                         Capsule()
                                             .fill(.white)
-                                            .frame(width: geo.size.width/3.5)
+                                            .frame(width: w/3.5)
                                             .shadow(radius: 20, y: 20)
-                                        
                                     )
-                                    .padding()
-                                    .popup(isPresented: $showPopUp1) {
-                                        // right answer
-                                        
-                                        AlertView(alert: AlertModel(risposta: value, imageM: "StickerM1", imageF: "StickerF1", gender: gender, testo: "RISPOSTA GIUSTA", azione: "VAI ALL'ATTIVITA'", bgRectColor: .giallio))
-                                        
-                                    } customize: { $0
-                                        .closeOnTapOutside(true)
-                                        .isOpaque(true)
-                                        .backgroundColor(.white.opacity(0.5))
-                                    }
-                                    .popup(isPresented: $showPopUp0) {
-                                        AlertView(alert: AlertModel(risposta: value, imageM: "StickerM0", imageF: "StickerF0", gender: gender, testo: "PROVIAMO DI NUOVO", azione: "RIPROVA", bgRectColor: .giallio))
-                                    } customize: { $0 
-                                            .closeOnTapOutside(true)
-                                            .isOpaque(true)
-                                            .backgroundColor(.white.opacity(0.5))
-                                    }
-                                
+                                    .padding(scaledPadding)
                             }
+                            .disabled(showPopUp0 || showPopUp1)
+                        }
+                    }
+                }
+                .padding(.horizontal, scaledPadding*4)
+                
+            }
+            .ignoresSafeArea()
+            .overlay(alignment: .center) {
+                ZStack {
+                    if showPopUp0 || showPopUp1 {
+                        Rectangle()
+                            .fill(.white.opacity(0.5))
+                        
+                    }
+                        
+                    
+                    VStack(alignment: .center){
+                        if showPopUp0 {
+                            AlertView(alert: AlertModel(risposta: 0, imageM: "StickerM0", imageF: "stickerF0", gender: gender, testo: "Proviamo di nuovo", azione: "riprova", bgRectColor: .giallio), showAlert: $showPopUp0)
+                                //.frame(width: w/2, height: h/2)
+                                .padding(scaledPadding*7)
+                            
                             
                             
                         }
-                        
+                        if showPopUp1{
+                            AlertView(alert: AlertModel(risposta: 1, imageM: "StickerM1", imageF: "StickerF1", gender: gender, testo: "Congratulazioni!", azione: "avanti", bgRectColor: .giallio), showAlert: $showPopUp1)
+                                //.frame(width: w/1.5, height: h/2)
+                                .padding(scaledPadding*7)
+                        }
                     }
-                    .padding(.trailing, 100)
                 }
+                .ignoresSafeArea()
             }
-            .ignoresSafeArea()
         }
     }
 }

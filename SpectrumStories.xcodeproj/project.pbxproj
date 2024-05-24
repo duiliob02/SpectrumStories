@@ -16,7 +16,6 @@
 		A0A932DF2BF7A0EF008F76E5 /* Coiny-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0A932DC2BF7A0EF008F76E5 /* Coiny-Regular.ttf */; };
 		A0A932E02BF7A0EF008F76E5 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = A0A932DD2BF7A0EF008F76E5 /* OFL.txt */; };
 		A0FA464C2BFB963F00902DB0 /* JoyHouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FA464B2BFB963F00902DB0 /* JoyHouseView.swift */; };
-		E64BD7362BFF777300F0B271 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = E64BD7352BFF777300F0B271 /* PopupView */; };
 		E64BD7382BFF7A7D00F0B271 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64BD7372BFF7A7D00F0B271 /* AlertView.swift */; };
 		E64BD73A2BFF7E3200F0B271 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64BD7392BFF7E3200F0B271 /* AlertModel.swift */; };
 		E6B2B0E92BFA849500FDE381 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B2B0E82BFA849500FDE381 /* Constants.swift */; };
@@ -48,7 +47,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E64BD7362BFF777300F0B271 /* PopupView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,8 +81,7 @@
 				A0FA464B2BFB963F00902DB0 /* JoyHouseView.swift */,
 				A02A31F42BFCD6A400C7ACC1 /* QuizView.swift */,
 				E64BD7372BFF7A7D00F0B271 /* AlertView.swift */,
-				A02A31F62BFCD6AF00C7ACC1 /* QuizModel.swift */,
-				E64BD7392BFF7E3200F0B271 /* AlertModel.swift */,
+				E65520152C00D51900F1A2E1 /* Model */,
 				A0A932D22BF79DC3008F76E5 /* Assets.xcassets */,
 				A0A932DE2BF7A0EF008F76E5 /* Coiny */,
 				A0A932D42BF79DC3008F76E5 /* Preview Content */,
@@ -109,6 +106,15 @@
 			path = Coiny;
 			sourceTree = "<group>";
 		};
+		E65520152C00D51900F1A2E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A02A31F62BFCD6AF00C7ACC1 /* QuizModel.swift */,
+				E64BD7392BFF7E3200F0B271 /* AlertModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,7 +132,6 @@
 			);
 			name = SpectrumStories;
 			packageProductDependencies = (
-				E64BD7352BFF777300F0B271 /* PopupView */,
 			);
 			productName = SpectrumStories;
 			productReference = A0A932CB2BF79DC2008F76E5 /* SpectrumStories.app */;
@@ -157,7 +162,6 @@
 			);
 			mainGroup = A0A932C22BF79DC1008F76E5;
 			packageReferences = (
-				E64BD7342BFF777300F0B271 /* XCRemoteSwiftPackageReference "PopupView" */,
 			);
 			productRefGroup = A0A932CC2BF79DC2008F76E5 /* Products */;
 			projectDirPath = "";
@@ -330,7 +334,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SpectrumStories/Preview Content\"";
-				DEVELOPMENT_TEAM = UURX55DST6;
+				DEVELOPMENT_TEAM = VY6469W59X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SpectrumStories/Info.plist;
@@ -363,7 +367,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SpectrumStories/Preview Content\"";
-				DEVELOPMENT_TEAM = UURX55DST6;
+				DEVELOPMENT_TEAM = VY6469W59X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SpectrumStories/Info.plist;
@@ -410,25 +414,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		E64BD7342BFF777300F0B271 /* XCRemoteSwiftPackageReference "PopupView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/exyte/PopupView.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.9.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		E64BD7352BFF777300F0B271 /* PopupView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E64BD7342BFF777300F0B271 /* XCRemoteSwiftPackageReference "PopupView" */;
-			productName = PopupView;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A0A932C32BF79DC1008F76E5 /* Project object */;
 }
