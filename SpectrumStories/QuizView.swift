@@ -65,6 +65,7 @@ struct QuizView: View {
                 .padding(.horizontal, scaledPadding*4)
                 
             }
+            .navigationBarBackButtonHidden()
             .ignoresSafeArea()
             .overlay(alignment: .center) {
                 ZStack {

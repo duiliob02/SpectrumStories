@@ -11,7 +11,7 @@ import SwiftUI
 struct SpectrumStoriesApp: App {
     var body: some Scene {
         WindowGroup {
-            JoyHouseView(gender: 0)
+            LogoView()
         }
     }
 }

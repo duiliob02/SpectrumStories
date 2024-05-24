@@ -17,7 +17,7 @@ struct GenderView: View {
                 .fill(Color.giallio)
             VStack{
                 Text("WHAT'S YOUR GENDER")
-                HStack{
+                HStack(spacing: 10) {
                     Button(action: {
                         gender = 0
                         showAlert.toggle()
@@ -26,9 +26,8 @@ struct GenderView: View {
                             Image("male")
                                 .resizable()
                                 .scaledToFit()
-                                .padding(.trailing, 50)
+                                .frame(width: UIScreen.main.bounds.width/4.5)
                             Text("BOY")
-                            
                         }
                     })
                     
@@ -41,7 +40,7 @@ struct GenderView: View {
                             Image("female")
                                 .resizable()
                                 .scaledToFit()
-                                .padding(.trailing, 50)
+                                .frame(width: UIScreen.main.bounds.width/3.5)
                             Text("GIRL")
                             
                         }
