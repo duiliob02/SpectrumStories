@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import PopupView
+
 
 struct QuizView: View {
     var gender : Int = UserDefaults.standard.value(forKey: "gender") as! Int

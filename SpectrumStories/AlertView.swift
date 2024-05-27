@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import PopupView
+
 
 struct AlertView: View {
     var alert : AlertModel
