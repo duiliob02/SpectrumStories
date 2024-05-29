@@ -53,7 +53,7 @@ struct AlertView: View {
                             .padding(scaledPadding)
                     }
                     .onTapGesture {
-                        withAnimation(.smooth) {
+                        withAnimation(.linear(duration: 0.3)) {
                             showAlert.toggle()
                         }
                     }

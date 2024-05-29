@@ -1,75 +1,51 @@
 //
-//  JoyHouseView.swift
+//  QuizView.swift
 //  SpectrumStories
 //
-//  Created by Duilio Barbato on 20/05/24.
+//  Created by Duilio Barbato on 28/05/24.
 //
 
 import SwiftUI
 
-
 struct QuizView: View {
     var gender : Int = UserDefaults.standard.value(forKey: "gender") as! Int
-    var quiz : Quiz
-    @State private var showPopUp1 = false
-    @State private var showPopUp0 = false
-    @ScaledMetric(relativeTo: .body) var scaledPadding: CGFloat = 20
+    var quiz : QuizModel
+    var bgColour : Color
+    
+    @State private var currentQuestionIndex = 0
+    @State private var isCorrect = false
+    
+    @State private var correctAlert = false
+    @State private var wrongAlert = false
+    
+    @ScaledMetric(relativeTo: .body) private var scaledPadding : CGFloat = 20
     
     var body: some View {
         GeometryReader { geo in
-            let w = geo.size.width
-            let h = geo.size.height
-            ZStack{
+            ZStack {
                 Rectangle()
-                    .fill(.orangio)
-                
+                    .fill(bgColour)
                 HStack {
-                    Image((gender == 0) ? quiz.imgM : quiz.imgF)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: geo.size.width/2)
-                        
-                    Spacer()
+                    Image(systemName: "circle.fill")
                     VStack {
-                        Text(quiz.domanda)
-                            .font(.custom(Constants.font, size: 60, relativeTo: .largeTitle))
-                            .multilineTextAlignment(.center)
-                            .padding(.bottom, scaledPadding)
-                        ForEach(quiz.risposte.sorted(by: >), id: \.key) {                                key, value in
-                            // todo : pop up per giusto o sbagliato
+                        Text(quiz.questions[currentQuestionIndex].text)
+                            .font(.custom(Constants.font, size: 70))
+                            .padding()
+                        ForEach(0..<quiz.questions[self.currentQuestionIndex].choices.count, id: \.self) { choice in
                             Button {
-                                withAnimation(.smooth) {
-                                    if value==0 {
-                                        showPopUp0.toggle()
-                                    } else {
-                                        showPopUp1.toggle()
-                                    }
-                                }
+                                optionSelected(choice)
                             } label: {
-                                Text(key)
-                                    .font(.custom(Constants.font, size: 40))
-                                    .foregroundStyle(.black)
-                                    .padding(scaledPadding)
-                                    .background(
-                                        Capsule()
-                                            .fill(.white)
-                                            .frame(width: w/3.5)
-                                            .shadow(radius: 20, y: 20)
-                                    )
-                                    .padding(scaledPadding)
+                                Text(quiz.questions[self.currentQuestionIndex].choices[choice])
+                                    .font(.custom(Constants.font, size: 60))
                             }
-                            .disabled(showPopUp0 || showPopUp1)
                         }
                     }
                 }
-                .padding(.horizontal, scaledPadding*4)
-                
             }
-            .navigationBarBackButtonHidden()
             .ignoresSafeArea()
-            .overlay(alignment: .center) {
+            .overlay {
                 ZStack {
-                    if showPopUp0 || showPopUp1 {
+                    if correctAlert || wrongAlert {
                         Rectangle()
                             .fill(.white.opacity(0.5))
                         
@@ -77,16 +53,16 @@ struct QuizView: View {
                         
                     
                     VStack(alignment: .center){
-                        if showPopUp0 {
-                            AlertView(alert: AlertModel(risposta: 0, imageM: "StickerM0", imageF: "stickerF0", gender: gender, testo: "Proviamo di nuovo", azione: "riprova", bgRectColor: .giallio), showAlert: $showPopUp0)
+                        if wrongAlert {
+                            AlertView(alert: AlertModel(risposta: 0, imageM: "StickerM0", imageF: "stickerF0", gender: gender, testo: "Proviamo di nuovo", azione: "riprova", bgRectColor: .giallio), showAlert: $wrongAlert)
                                 //.frame(width: w/2, height: h/2)
                                 .padding(scaledPadding*7)
                             
                             
                             
                         }
-                        if showPopUp1{
-                            AlertView(alert: AlertModel(risposta: 1, imageM: "StickerM1", imageF: "StickerF1", gender: gender, testo: "Congratulazioni!", azione: "avanti", bgRectColor: .giallio), showAlert: $showPopUp1)
+                        if correctAlert {
+                            AlertView(alert: AlertModel(risposta: 1, imageM: "StickerM1", imageF: "StickerF1", gender: gender, testo: "Congratulazioni!", azione: "avanti", bgRectColor: .giallio), showAlert: $correctAlert)
                                 //.frame(width: w/1.5, height: h/2)
                                 .padding(scaledPadding*7)
                         }
@@ -96,9 +72,33 @@ struct QuizView: View {
             }
         }
     }
+    
+    func optionSelected(_ index: Int) {
+        withAnimation(.linear(duration: 0.3)) {
+            if index == quiz.questions[currentQuestionIndex].correctAnsw {
+                isCorrect = true
+                correctAlert = true
+
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    isCorrect = false
+                    if (currentQuestionIndex < 2) {
+                        currentQuestionIndex += 1
+                    }
+                }
+            } else {
+                
+                wrongAlert = true
+                isCorrect = false
+            }
+        }
+    }
 }
 
-
 #Preview {
-    QuizView(gender: 0, quiz: Quiz(imgM: "QuizJoyM", imgF: "", domanda: "COSA STANNO PROVANDO I BAMBINI?", risposte: ["FELICITA'" : 1, "RABBIA" : 0, "TRISTEZZA" : 0]))
+    QuizView(gender: 0, quiz: QuizModel(storyCardM: "",storyCardF: "", questions: [
+        QuestionModel(text: "ciao", correctAnsw: 0, choices: ["prova1","prova2","prova3"]),
+        QuestionModel(text: "ciaone", correctAnsw: 1, choices: ["provaada","sondas", "aosncaso"]),
+        QuestionModel(text: "asiubc", correctAnsw: 1, choices: ["prova12e123ada","s4141ondas", "aos4343ncaso"])
+    ]), bgColour: .orange)
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct JoyHouseView: View {
+struct HouseView: View {
     var gender : Int = UserDefaults.standard.value(forKey: "gender") as! Int
     @State var isImageShown = false
     @State var positionY : Double = 180
@@ -89,5 +89,5 @@ struct Pavimento: Shape {
 }
 
 #Preview {
-    JoyHouseView(gender: 0)
+    HouseView(gender: 0)
 }

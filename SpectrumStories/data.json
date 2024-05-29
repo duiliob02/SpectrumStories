@@ -1,0 +1,28 @@
+{
+    [
+        "joy" : {
+            "backgroundColour" : "yellow",
+            "floorColour" : "yellow",
+            "object" : "TorTavolo",
+            "titolo" : "Casa della Gioia",
+            "storyCardM" : "QuizJoyM",
+            "storyCardF" : "QuizJoyF",
+            "quiz" : {
+                "storyCardM" : "QuizJoyM",
+                "storyCardF" : "QuizJoyF",
+                "questions" : [
+                    {
+                        "text" : "Dove sono i bambini?",
+                        "correctAnsw" : 0,
+                        "choices" : [
+                            "Ad una festa",
+                            "A lezione",
+                            "Dal dottore"
+                        ]
+                    }
+                ]
+            }
+        },
+        
+    ]
+}
