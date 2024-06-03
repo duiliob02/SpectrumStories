@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct HouseView: View {
-    var gender : Int = UserDefaults.standard.value(forKey: "gender") as! Int
+    @AppStorage("gender") var gender = 42
     @State var isImageShown = false
     @State var positionY : Double = 180
     
     var body: some View {
         // da rimuovere quando saranno collegate con le altre view perche avremo gia un navigation Stack
-        NavigationStack {
+        
             GeometryReader { geo in
                 ZStack{
                     Rectangle()
@@ -67,7 +67,7 @@ struct HouseView: View {
                 }
                 .ignoresSafeArea()
             }
-        }
+        
     }
 }
 

@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct HouseModel : Codable {
+struct HouseModel {
     var backgroundColour : String
     var floorColour : String
     var object : String
