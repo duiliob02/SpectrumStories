@@ -1,28 +1,177 @@
 {
-    [
-        "joy" : {
-            "backgroundColour" : "yellow",
-            "floorColour" : "yellow",
-            "object" : "TorTavolo",
-            "titolo" : "Casa della Gioia",
-            "storyCardM" : "QuizJoyM",
-            "storyCardF" : "QuizJoyF",
-            "quiz" : {
-                "storyCardM" : "QuizJoyM",
-                "storyCardF" : "QuizJoyF",
-                "questions" : [
-                    {
-                        "text" : "Dove sono i bambini?",
-                        "correctAnsw" : 0,
-                        "choices" : [
-                            "Ad una festa",
-                            "A lezione",
-                            "Dal dottore"
-                        ]
-                    }
-                ]
+    "Houses": [
+        {
+            "joy": {
+                "backgroundColour": "yellow",
+                "floorColour": "yellow",
+                "object": "TorTavolo",
+                "titolo": "Casa della Gioia",
+                "storyCardM": "QuizJoyM",
+                "storyCardF": "QuizJoyF",
+                "quiz": {
+                    "storyCardM": "QuizJoyM",
+                    "storyCardF": "QuizJoyF",
+                    "questions": [
+                        {
+                            "text": "Dove sono i bambini?",
+                            "correctAnsw": 0,
+                            "choices": [
+                                "Ad una festa",
+                                "A lezione",
+                                "Dal dottore"
+                            ]
+                        },
+                        {
+                            "text": "Cosa stanno provando i bambini?",
+                            "correctAnsw": 1,
+                            "choices": [
+                                "Rabbia",
+                                "Felicità",
+                                "Tristezza"
+                            ]
+                        },
+                        {
+                            "text": "Perché sono felici?",
+                            "correctAnsw": 2,
+                            "choiches": [
+                                "Mangiano le caramelle",
+                                "Sono allo zoo",
+                                "Sono a un compleanno"
+                            ]
+                        }
+                    ]
+                }
             }
         },
-        
+        {
+            "sadness": {
+                "backgroundColour": "blue",
+                "floorColour": "blue",
+                "object": "LibroTavolo",
+                "titolo": "Casa della Tristezza",
+                "storyCardM": "QuizSadM",
+                "storyCardF": "QuizSadF",
+                "quiz": {
+                    "storyCardM": "QuizSadM",
+                    "storyCardF": "QuizSadF",
+                    "questions": [
+                        {
+                            "text": "Dove sono i bambini?",
+                            "correctAnsw": 1,
+                            "choices": [
+                                "Allo zoo",
+                                "A scuola",
+                                "Dal dottore"
+                            ]
+                        },
+                        {
+                            "text": "Cosa sta provando?",
+                            "correctAnsw": 2,
+                            "choices": [
+                                "Rabbia",
+                                "Felicità",
+                                "Tristezza"
+                            ]
+                        },
+                        {
+                            "text": "Perché è triste?",
+                            "correctAnsw": 2,
+                            "choiches": [
+                                "La mamma va via",
+                                "Va' dal dottore",
+                                "Deve studiare"
+                            ]
+                        }
+                    ]
+                }
+            }
+
+        },
+        {
+            "anger": {
+                "backgroundColour": "red",
+                "floorColour": "red",
+                "object": "Cesta",
+                "titolo": "Casa della Rabbia",
+                "storyCardM": "QuizAngM",
+                "storyCardF": "QuizAngF",
+                "quiz": {
+                    "storyCardM": "QuizAngM",
+                    "storyCardF": "QuizAngF",
+                    "questions": [
+                        {
+                            "text": "Dove sono i bambini?",
+                            "correctAnsw": 2,
+                            "choices": [
+                                "Al cinema",
+                                "A mare",
+                                "Al parco"
+                            ]
+                        },
+                        {
+                            "text": "Cosa stanno provando i bambini?",
+                            "correctAnsw": 0,
+                            "choices": [
+                                "Rabbia",
+                                "Felicità",
+                                "Tristezza"
+                            ]
+                        },
+                        {
+                            "text": "Perché sono arrabbiati?",
+                            "correctAnsw": 1,
+                            "choiches": [
+                                "Devono andare via",
+                                "Vogliono lo stesso gioco",
+                                "Vogliono il gelato"
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fear": {
+                "backgroundColour": "purple",
+                "floorColour": "purple",
+                "object": "Finestra",
+                "titolo": "Casa della Paura",
+                "storyCardM": "QuizFearM",
+                "storyCardF": "QuizFearF",
+                "quiz": {
+                    "storyCardM": "QuizFearM",
+                    "storyCardF": "QuizFearF",
+                    "questions": [
+                        {
+                            "text": "Dove si trova?",
+                            "correctAnsw": 2,
+                            "choices": [
+                                "Nel salone",
+                                "In un negozio",
+                                "In cameretta"
+                            ]
+                        },
+                        {
+                            "text": "Cosa sta provando?",
+                            "correctAnsw": 0,
+                            "choices": [
+                                "Paura",
+                                "Rabbia",
+                                "Tristezza"
+                            ]
+                        },
+                        {
+                            "text": "Perché ha paura?",
+                            "correctAnsw": 0,
+                            "choiches": [
+                                "C'è un mostro",
+                                "Non vuole dormire",
+                                "Ha ricevuto un rimprovero"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
     ]
 }
