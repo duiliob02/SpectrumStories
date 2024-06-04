@@ -24,6 +24,8 @@
 		E614B95C2C0F648900193F9E /* JoyActivityPresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614B95B2C0F648900193F9E /* JoyActivityPresentationView.swift */; };
 		E614B95E2C0F669600193F9E /* JoyActView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614B95D2C0F669600193F9E /* JoyActView.swift */; };
 		E614B9602C0F671000193F9E /* FaceActModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614B95F2C0F671000193F9E /* FaceActModel.swift */; };
+		E614B9622C0F9BA500193F9E /* AnyHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614B9612C0F9BA500193F9E /* AnyHouse.swift */; };
+		E614B9642C0FA72400193F9E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614B9632C0FA72400193F9E /* ContentView.swift */; };
 		E64BD7382BFF7A7D00F0B271 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64BD7372BFF7A7D00F0B271 /* AlertView.swift */; };
 		E64BD73A2BFF7E3200F0B271 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64BD7392BFF7E3200F0B271 /* AlertModel.swift */; };
 		E6B2B0E92BFA849500FDE381 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B2B0E82BFA849500FDE381 /* Constants.swift */; };
@@ -51,6 +53,8 @@
 		E614B95B2C0F648900193F9E /* JoyActivityPresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyActivityPresentationView.swift; sourceTree = "<group>"; };
 		E614B95D2C0F669600193F9E /* JoyActView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyActView.swift; sourceTree = "<group>"; };
 		E614B95F2C0F671000193F9E /* FaceActModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceActModel.swift; sourceTree = "<group>"; };
+		E614B9612C0F9BA500193F9E /* AnyHouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyHouse.swift; sourceTree = "<group>"; };
+		E614B9632C0FA72400193F9E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E64BD7372BFF7A7D00F0B271 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		E64BD7392BFF7E3200F0B271 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		E6B2B0E82BFA849500FDE381 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 				A0A932E12BF7A116008F76E5 /* Info.plist */,
 				A0A932CE2BF79DC2008F76E5 /* SpectrumStoriesApp.swift */,
 				A0CB63082C0DF09400D3ECB1 /* MapView.swift */,
+				E614B9632C0FA72400193F9E /* ContentView.swift */,
 				E6B2B0EA2BFA887200FDE381 /* LogoView.swift */,
 				A0A932D02BF79DC2008F76E5 /* KeyboardView.swift */,
 				E6B2B0EC2BFA889900FDE381 /* GenderView.swift */,
@@ -136,13 +141,14 @@
 		E65520152C00D51900F1A2E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E614B9582C0F53F500193F9E /* HouseDataModel.swift */,
+				E614B9612C0F9BA500193F9E /* AnyHouse.swift */,
 				A04557052C0627EA0023F08D /* HouseModel.swift */,
 				A04557092C0628BF0023F08D /* QuestionModel.swift */,
 				A04557072C06286E0023F08D /* QuizModel.swift */,
 				E64BD7392BFF7E3200F0B271 /* AlertModel.swift */,
 				E614B9562C0F518B00193F9E /* Data.swift */,
 				E614B95F2C0F671000193F9E /* FaceActModel.swift */,
-				E614B9582C0F53F500193F9E /* HouseDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,11 +235,13 @@
 				A04557042C0627AB0023F08D /* QuizView.swift in Sources */,
 				E64BD7382BFF7A7D00F0B271 /* AlertView.swift in Sources */,
 				A0FA464C2BFB963F00902DB0 /* HouseView.swift in Sources */,
+				E614B9642C0FA72400193F9E /* ContentView.swift in Sources */,
 				E6B2B0EB2BFA887200FDE381 /* LogoView.swift in Sources */,
 				E614B95C2C0F648900193F9E /* JoyActivityPresentationView.swift in Sources */,
 				A0CB63092C0DF09400D3ECB1 /* MapView.swift in Sources */,
 				A045570A2C0628BF0023F08D /* QuestionModel.swift in Sources */,
 				A04557082C06286E0023F08D /* QuizModel.swift in Sources */,
+				E614B9622C0F9BA500193F9E /* AnyHouse.swift in Sources */,
 				A04557062C0627EA0023F08D /* HouseModel.swift in Sources */,
 				E614B9572C0F518B00193F9E /* Data.swift in Sources */,
 				E614B9602C0F671000193F9E /* FaceActModel.swift in Sources */,

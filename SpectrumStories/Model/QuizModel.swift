@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct QuizModel  {
+struct QuizModel<NextView: View> {
     let storyCardM: String
     let storyCardF: String
     let questions: [QuestionModel]
+    let nextView: NextView
 }

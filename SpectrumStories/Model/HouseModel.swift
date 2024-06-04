@@ -6,15 +6,15 @@
 //
 
 import Foundation
+import SwiftUI
 
 
-struct HouseModel  {
+struct HouseModel<NextView: View> {
     let backgroundColour: String
     let floorColour: String
     let object: String
     let titolo: String
     let storyCardM: String
     let storyCardF: String
-    let quiz: QuizModel
+    let quiz: QuizModel<NextView>
 }
-

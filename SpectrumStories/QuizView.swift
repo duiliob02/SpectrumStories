@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct QuizView: View {
+struct QuizView<NextView: View>: View {
     @AppStorage("gender") var gender = 0
-    var quiz : QuizModel
+    var quiz : QuizModel<NextView>
     var bgColour : Color
     
     @State private var currentQuestionIndex = 0
@@ -17,6 +17,7 @@ struct QuizView: View {
     
     @State private var correctAlert = false
     @State private var wrongAlert = false
+    @State private var correctCount = 0
     
     @ScaledMetric(relativeTo: .body) private var scaledPadding : CGFloat = 20
     @ScaledMetric(relativeTo: .title3) private var scaledText : CGFloat = 35
@@ -37,16 +38,16 @@ struct QuizView: View {
                     
                     VStack {
                         
-                        Text(quiz.questions[currentQuestionIndex].text.uppercased())
+                        Text(quiz.questions[currentQuestionIndex].question.uppercased())
                             .font(.custom(Constants.font, size: 60))
                             .padding(.bottom ,scaledPadding*4)
                             
                        
-                        ForEach(0..<quiz.questions[self.currentQuestionIndex].choices.count, id: \.self) { choice in
+                        ForEach(0..<quiz.questions[self.currentQuestionIndex].answers.count, id: \.self) { choice in
                             Button {
                                 optionSelected(choice)
                             } label: {
-                                Text(quiz.questions[self.currentQuestionIndex].choices[choice].uppercased())
+                                Text(quiz.questions[self.currentQuestionIndex].answers[choice].uppercased())
                                     .font(.custom(Constants.font, size: scaledText))
                                     .foregroundStyle(.black)
                                     .padding(.vertical, scaledPadding*1.4)
@@ -77,17 +78,20 @@ struct QuizView: View {
                     
                     VStack(alignment: .center){
                         if wrongAlert {
-                            AlertView(alert: AlertModel(imageM: "StickerM0", imageF: "stickerF0", testo: "Proviamo di nuovo", azione: "riprova", bgRectColor: .giallio), showAlert: $wrongAlert)
-                                //.frame(width: w/2, height: h/2)
-                                .padding(scaledPadding*7)
+                            AlertView(alert: AlertModel(imageM: "StickerM0", imageF: "stickerF0", testo: "Proviamo di nuovo", azione: "riprova", bgRectColor: .giallio), showAlert: $wrongAlert, nextView: EmptyView())
+                    
                             
                             
                             
                         }
                         if correctAlert {
-                            AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Congratulazioni!", azione: "avanti", bgRectColor: .giallio), showAlert: $correctAlert)
-                                //.frame(width: w/1.5, height: h/2)
-                                .padding(scaledPadding*7)
+                            if correctCount == 3 {
+                                AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Ottimo!\nOra giochiamo insieme", azione: "avanti", bgRectColor: .giallio), showAlert: $correctAlert, nextView: JoyActivityPresentationView(), lastQuestion: true)
+                                    
+                            } else {
+                                AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Congratulazioni!", azione: "avanti", bgRectColor: .giallio), showAlert: $correctAlert, nextView: EmptyView())
+                                
+                            }
                         }
                     }
                 }
@@ -101,6 +105,7 @@ struct QuizView: View {
             if index == quiz.questions[currentQuestionIndex].correctAnsw {
                 isCorrect = true
                 correctAlert = true
+                correctCount += 1
 
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -120,8 +125,8 @@ struct QuizView: View {
 
 #Preview {
     QuizView(gender: 0, quiz: QuizModel(storyCardM: "QuizJoyM",storyCardF: "", questions: [
-        QuestionModel(text: "ciao", correctAnsw: 0, choices: ["VOGLIONO LO STESSO GIOCO","prova2","prova3"]),
-        QuestionModel(text: "ciaone", correctAnsw: 1, choices: ["provaada","sondas", "aosncaso"]),
-        QuestionModel(text: "asiubc", correctAnsw: 1, choices: ["prova12e123ada","s4141ondas", "aos4343ncaso"])
-    ]), bgColour: .orange)
+        QuestionModel(question: "ciao", correctAnsw: 0, answers: ["VOGLIONO LO STESSO GIOCO","prova2","prova3"]),
+        QuestionModel(question: "ciaone", correctAnsw: 1, answers: ["provaada","sondas", "aosncaso"]),
+        QuestionModel(question: "asiubc", correctAnsw: 1, answers: ["prova12e123ada","s4141ondas", "aos4343ncaso"])
+    ], nextView: JoyActivityPresentationView()), bgColour: .orange)
 }

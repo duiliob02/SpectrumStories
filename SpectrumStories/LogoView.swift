@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LogoView: View {
     
-    
     var body: some View {
         NavigationStack {
             ZStack {

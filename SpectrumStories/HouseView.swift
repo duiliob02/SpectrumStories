@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct HouseView: View {
+struct HouseView<NextView: View>: View {
     @AppStorage("gender") var gender = 42
     @State var isImageShown = false
     @State var positionY : Double = 180
     @State private var activateNav = false
+    var house : HouseModel<NextView>
     
     var body: some View {
         // da rimuovere quando saranno collegate con le altre view perche avremo gia un navigation Stack
@@ -21,11 +22,15 @@ struct HouseView: View {
                     Rectangle()
                         .fill(.orangio)
                     
-                    Text("CASA DELLA GIOIA")
-                        .foregroundStyle(.black)
-                        .font(.custom(Constants.font, size: 70))
-                        .position(CGPoint(x: geo.size.width/1.5, y: 100.0))
-                        .padding(.trailing)
+                    HStack{
+                        Spacer()
+                        Text(house.titolo.uppercased())
+                            .foregroundStyle(.black)
+                            .font(.custom(Constants.font, size: 50))
+                            //.position(CGPoint(x: geo.size.width/1.5, y: 100.0))
+                            .padding(.trailing)
+                        Spacer()
+                    }
                     Pavimento(width: geo.size.width*0.2, height: 1.5)
                         .fill(.orange)
                     
@@ -35,7 +40,7 @@ struct HouseView: View {
                         .frame(width: geo.size.height / 5)
                         .position(CGPoint(x: geo.size.width / 10, y: geo.size.height / 1.3))
                     
-                    Image("TorTavolo")
+                    Image(house.object)
                         .resizable()
                         .scaledToFit()
                         .frame(height: geo.size.height/2.5)
@@ -65,11 +70,7 @@ struct HouseView: View {
                                     activateNav.toggle()
                             }
                             .navigationDestination(isPresented: $activateNav) {
-                                QuizView(quiz: QuizModel(storyCardM: "QuizJoyM",storyCardF: "", questions: [
-                                    QuestionModel(text: "ciao", correctAnsw: 0, choices: ["VOGLIONO LO STESSO GIOCO","prova2","prova3"]),
-                                    QuestionModel(text: "ciaone", correctAnsw: 1, choices: ["provaada","sondas", "aosncaso"]),
-                                    QuestionModel(text: "asiubc", correctAnsw: 1, choices: ["prova12e123ada","s4141ondas", "aos4343ncaso"])
-                                ]), bgColour: .orange)
+                                QuizView(quiz:  house.quiz, bgColour: .orange)
                             }
                             
                     }
@@ -99,6 +100,37 @@ struct Pavimento: Shape {
     }
 }
 
-#Preview {
-    HouseView(gender: 0)
-}
+
+//
+//#Preview {
+//    HouseView<AnyView>(house: HouseModel(backgroundColour: "yellow", floorColour: "yellow", object: "Tortavolo", titolo: "casa della gioia", storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", quiz: QuizModel(storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", questions: [
+//        QuestionModel(
+//            question: "Dove sono i bambini?",
+//            correctAnsw: 0,
+//            answers: [
+//                "Ad una festa",
+//                "A lezione",
+//                "Dal dottore"
+//            ]
+//        ),
+//        QuestionModel(
+//            question: "Cosa stanno provando i bambini?",
+//            correctAnsw: 1,
+//            answers: [
+//                "Rabbia",
+//                "Felicità",
+//                "Tristezza"
+//            ]
+//        ),
+//        QuestionModel(
+//            question: "Perché sono felici?",
+//            correctAnsw: 2,
+//            answers: [
+//                "Mangiano le caramelle",
+//                "Sono allo zoo",
+//                "Sono a un compleanno"
+//            ]
+//        )
+//    ],
+//    nextView: JoyActivityPresentationView()) ))
+//}

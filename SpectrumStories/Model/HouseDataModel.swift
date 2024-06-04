@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct HousesData {
+struct HousesData <NextView: View> {
     let name: String
-    let data : HouseModel
+    let data : HouseModel<NextView>
 }

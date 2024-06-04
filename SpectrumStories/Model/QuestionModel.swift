@@ -8,13 +8,7 @@
 import Foundation
 
 struct QuestionModel  {
-    let text: String
-        let correctAnsw: Int
-        let choices: [String]
-        
-        enum CodingKeys: String, CodingKey {
-            case text
-            case correctAnsw
-            case choices = "choices"
-        }
+    let question: String
+    let correctAnsw: Int
+    let answers: [String]
 }
