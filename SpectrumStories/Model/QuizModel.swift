@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct QuizModel : Codable {
-    var storyCardM : String
-    var storyCardF : String
-    var questions : Array<QuestionModel>
+struct QuizModel  {
+    let storyCardM: String
+    let storyCardF: String
+    let questions: [QuestionModel]
 }

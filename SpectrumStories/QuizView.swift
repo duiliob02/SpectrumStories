@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuizView: View {
-    var gender : Int = UserDefaults.standard.value(forKey: "gender") as! Int
+    @AppStorage("gender") var gender = 0
     var quiz : QuizModel
     var bgColour : Color
     
@@ -19,6 +19,7 @@ struct QuizView: View {
     @State private var wrongAlert = false
     
     @ScaledMetric(relativeTo: .body) private var scaledPadding : CGFloat = 20
+    @ScaledMetric(relativeTo: .title3) private var scaledText : CGFloat = 35
     
     var body: some View {
         GeometryReader { geo in
@@ -26,21 +27,43 @@ struct QuizView: View {
                 Rectangle()
                     .fill(bgColour)
                 HStack {
-                    Image(systemName: "circle.fill")
+                    Image((gender==0) ? quiz.storyCardM : quiz.storyCardF)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: geo.size.width/2)
+                        
+                    
+                    Spacer()
+                    
                     VStack {
-                        Text(quiz.questions[currentQuestionIndex].text)
-                            .font(.custom(Constants.font, size: 70))
-                            .padding()
+                        
+                        Text(quiz.questions[currentQuestionIndex].text.uppercased())
+                            .font(.custom(Constants.font, size: 60))
+                            .padding(.bottom ,scaledPadding*4)
+                            
+                       
                         ForEach(0..<quiz.questions[self.currentQuestionIndex].choices.count, id: \.self) { choice in
                             Button {
                                 optionSelected(choice)
                             } label: {
-                                Text(quiz.questions[self.currentQuestionIndex].choices[choice])
-                                    .font(.custom(Constants.font, size: 60))
+                                Text(quiz.questions[self.currentQuestionIndex].choices[choice].uppercased())
+                                    .font(.custom(Constants.font, size: scaledText))
+                                    .foregroundStyle(.black)
+                                    .padding(.vertical, scaledPadding*1.4)
+                                    .padding(.horizontal, scaledPadding*2)
+                                    .background{
+                                        Capsule()
+                                            .foregroundStyle(.white)
+                                            .frame(width: geo.size.width/3)
+                                    }
+                                    .padding(.vertical, scaledPadding/2)
                             }
                         }
+                        
                     }
+                    Spacer()
                 }
+                .padding(.leading, scaledPadding*3)
             }
             .ignoresSafeArea()
             .overlay {
@@ -54,7 +77,7 @@ struct QuizView: View {
                     
                     VStack(alignment: .center){
                         if wrongAlert {
-                            AlertView(alert: AlertModel(risposta: 0, imageM: "StickerM0", imageF: "stickerF0", gender: gender, testo: "Proviamo di nuovo", azione: "riprova", bgRectColor: .giallio), showAlert: $wrongAlert)
+                            AlertView(alert: AlertModel(imageM: "StickerM0", imageF: "stickerF0", testo: "Proviamo di nuovo", azione: "riprova", bgRectColor: .giallio), showAlert: $wrongAlert)
                                 //.frame(width: w/2, height: h/2)
                                 .padding(scaledPadding*7)
                             
@@ -62,7 +85,7 @@ struct QuizView: View {
                             
                         }
                         if correctAlert {
-                            AlertView(alert: AlertModel(risposta: 1, imageM: "StickerM1", imageF: "StickerF1", gender: gender, testo: "Congratulazioni!", azione: "avanti", bgRectColor: .giallio), showAlert: $correctAlert)
+                            AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Congratulazioni!", azione: "avanti", bgRectColor: .giallio), showAlert: $correctAlert)
                                 //.frame(width: w/1.5, height: h/2)
                                 .padding(scaledPadding*7)
                         }
@@ -87,7 +110,7 @@ struct QuizView: View {
                     }
                 }
             } else {
-                
+            
                 wrongAlert = true
                 isCorrect = false
             }
@@ -96,8 +119,8 @@ struct QuizView: View {
 }
 
 #Preview {
-    QuizView(gender: 0, quiz: QuizModel(storyCardM: "",storyCardF: "", questions: [
-        QuestionModel(text: "ciao", correctAnsw: 0, choices: ["prova1","prova2","prova3"]),
+    QuizView(gender: 0, quiz: QuizModel(storyCardM: "QuizJoyM",storyCardF: "", questions: [
+        QuestionModel(text: "ciao", correctAnsw: 0, choices: ["VOGLIONO LO STESSO GIOCO","prova2","prova3"]),
         QuestionModel(text: "ciaone", correctAnsw: 1, choices: ["provaada","sondas", "aosncaso"]),
         QuestionModel(text: "asiubc", correctAnsw: 1, choices: ["prova12e123ada","s4141ondas", "aos4343ncaso"])
     ]), bgColour: .orange)

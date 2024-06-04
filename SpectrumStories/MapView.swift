@@ -10,6 +10,9 @@ import SwiftUI
 struct MapView: View {
     @AppStorage("gender") var gender = 42
     
+    // to do: navigazione carta quiz
+    let houses = housesData
+    
     var body: some View {
         NavigationStack {
             GeometryReader { geo in
@@ -70,6 +73,10 @@ struct MapView: View {
                 
             }
             .ignoresSafeArea()
+            
+        }
+        .onAppear{
+            print(houses)
         }
     }
 }

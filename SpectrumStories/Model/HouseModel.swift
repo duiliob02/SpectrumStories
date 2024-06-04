@@ -8,12 +8,13 @@
 import Foundation
 
 
-struct HouseModel {
-    var backgroundColour : String
-    var floorColour : String
-    var object : String
-    var titolo : String
-    var storyCard : String
-    var quiz : QuizModel
+struct HouseModel  {
+    let backgroundColour: String
+    let floorColour: String
+    let object: String
+    let titolo: String
+    let storyCardM: String
+    let storyCardF: String
+    let quiz: QuizModel
 }
 

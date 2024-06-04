@@ -7,8 +7,14 @@
 
 import Foundation
 
-struct QuestionModel : Codable {
-    var text : String
-    var correctAnsw : Int
-    var choices : Array<String>
+struct QuestionModel  {
+    let text: String
+        let correctAnsw: Int
+        let choices: [String]
+        
+        enum CodingKeys: String, CodingKey {
+            case text
+            case correctAnsw
+            case choices = "choices"
+        }
 }

@@ -11,6 +11,7 @@ struct HouseView: View {
     @AppStorage("gender") var gender = 42
     @State var isImageShown = false
     @State var positionY : Double = 180
+    @State private var activateNav = false
     
     var body: some View {
         // da rimuovere quando saranno collegate con le altre view perche avremo gia un navigation Stack
@@ -60,6 +61,16 @@ struct HouseView: View {
                                 axis: (x:0,y:1,z:0)
                             )
                             .transition(.opacity)
+                            .onTapGesture {
+                                    activateNav.toggle()
+                            }
+                            .navigationDestination(isPresented: $activateNav) {
+                                QuizView(quiz: QuizModel(storyCardM: "QuizJoyM",storyCardF: "", questions: [
+                                    QuestionModel(text: "ciao", correctAnsw: 0, choices: ["VOGLIONO LO STESSO GIOCO","prova2","prova3"]),
+                                    QuestionModel(text: "ciaone", correctAnsw: 1, choices: ["provaada","sondas", "aosncaso"]),
+                                    QuestionModel(text: "asiubc", correctAnsw: 1, choices: ["prova12e123ada","s4141ondas", "aos4343ncaso"])
+                                ]), bgColour: .orange)
+                            }
                             
                     }
                     
