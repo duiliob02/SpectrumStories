@@ -27,7 +27,7 @@ struct HouseView<NextView: View>: View {
                         Text(house.titolo.uppercased())
                             .foregroundStyle(.black)
                             .font(.custom(Constants.font, size: 50))
-                            //.position(CGPoint(x: geo.size.width/1.5, y: 100.0))
+                            .position(CGPoint(x: geo.size.width/1.5, y: 100.0))
                             .padding(.trailing)
                         Spacer()
                     }
@@ -101,36 +101,36 @@ struct Pavimento: Shape {
 }
 
 
-//
-//#Preview {
-//    HouseView<AnyView>(house: HouseModel(backgroundColour: "yellow", floorColour: "yellow", object: "Tortavolo", titolo: "casa della gioia", storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", quiz: QuizModel(storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", questions: [
-//        QuestionModel(
-//            question: "Dove sono i bambini?",
-//            correctAnsw: 0,
-//            answers: [
-//                "Ad una festa",
-//                "A lezione",
-//                "Dal dottore"
-//            ]
-//        ),
-//        QuestionModel(
-//            question: "Cosa stanno provando i bambini?",
-//            correctAnsw: 1,
-//            answers: [
-//                "Rabbia",
-//                "Felicità",
-//                "Tristezza"
-//            ]
-//        ),
-//        QuestionModel(
-//            question: "Perché sono felici?",
-//            correctAnsw: 2,
-//            answers: [
-//                "Mangiano le caramelle",
-//                "Sono allo zoo",
-//                "Sono a un compleanno"
-//            ]
-//        )
-//    ],
-//    nextView: JoyActivityPresentationView()) ))
-//}
+
+#Preview {
+    HouseView<AnyView>(house: HouseModel(backgroundColour: "yellow", floorColour: "yellow", object: "TorTavolo", titolo: "casa della gioia", storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", quiz: QuizModel(storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", questions: [
+        QuestionModel(
+            question: "Dove sono i bambini?",
+            correctAnsw: 0,
+            answers: [
+                "Ad una festa",
+                "A lezione",
+                "Dal dottore"
+            ]
+        ),
+        QuestionModel(
+            question: "Cosa stanno provando i bambini?",
+            correctAnsw: 1,
+            answers: [
+                "Rabbia",
+                "Felicità",
+                "Tristezza"
+            ]
+        ),
+        QuestionModel(
+            question: "Perché sono felici?",
+            correctAnsw: 2,
+            answers: [
+                "Mangiano le caramelle",
+                "Sono allo zoo",
+                "Sono a un compleanno"
+            ]
+        )
+    ],
+    nextView: AnyView(JoyActivityPresentationView())) ))
+}

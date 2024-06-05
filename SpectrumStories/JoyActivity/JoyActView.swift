@@ -10,6 +10,8 @@ import SwiftUI
 struct JoyActView: View {
     
     @State private var faces = facesJoyAct
+    @State private var taskCompleted = false
+    @State private var countFaces = 0
     
     let columns = [
             GridItem(.flexible()),
@@ -33,6 +35,10 @@ struct JoyActView: View {
                                         .onTapGesture(perform: {
                                             if face.correct{
                                                 face.tapped = true
+                                                countFaces += 1
+                                                if countFaces == 3 {
+                                                    taskCompleted.toggle()
+                                                }
                                             }
                                             
                                         })
@@ -47,7 +53,12 @@ struct JoyActView: View {
                                 }
                     }
             }
+                if countFaces == 3 {
+                    AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Congratulazioni!\nOra torniamo alla mappa!", azione: "Ok", bgRectColor: .giallio), showAlert: $taskCompleted, nextView: MapView(houses: housesData), lastQuestion: true)
+                }
+            
         }
+        .navigationBarBackButtonHidden()
     }
 }
 

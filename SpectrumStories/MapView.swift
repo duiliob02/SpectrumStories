@@ -44,6 +44,7 @@ struct MapView: View {
                 }
             }
             .ignoresSafeArea()
+            .navigationBarBackButtonHidden()
         }
     }
     
