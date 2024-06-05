@@ -78,7 +78,7 @@ struct QuizView<NextView: View>: View {
                     
                     VStack(alignment: .center){
                         if wrongAlert {
-                            AlertView(alert: AlertModel(imageM: "StickerM0", imageF: "stickerF0", testo: "Proviamo di nuovo", azione: "riprova", bgRectColor: .giallio), showAlert: $wrongAlert, nextView: EmptyView())
+                            AlertView(alert: AlertModel(imageM: "StickerM0", imageF: "stickerF0", testo: "Proviamo di nuovo", azione: "riprova", bgRectColor: .verdio), showAlert: $wrongAlert, nextView: EmptyView())
                     
                             
                             
@@ -86,10 +86,10 @@ struct QuizView<NextView: View>: View {
                         }
                         if correctAlert {
                             if correctCount == 3 {
-                                AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Ottimo!\nOra giochiamo insieme", azione: "avanti", bgRectColor: .giallio), showAlert: $correctAlert, nextView: JoyActivityPresentationView(), lastQuestion: true)
+                                AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Ottimo!\nOra giochiamo insieme", azione: "avanti", bgRectColor: .verdio), showAlert: $correctAlert, nextView: JoyActivityPresentationView(), lastQuestion: true)
                                     
                             } else {
-                                AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Congratulazioni!", azione: "avanti", bgRectColor: .giallio), showAlert: $correctAlert, nextView: EmptyView())
+                                AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Congratulazioni!", azione: "avanti", bgRectColor: .verdio), showAlert: $correctAlert, nextView: EmptyView())
                                 
                             }
                         }

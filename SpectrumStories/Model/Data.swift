@@ -570,8 +570,8 @@ let housesData = [
             nextView: JoyActivityPresentationView()
         )
     ), houseView: HouseView(house: HouseModel(
-        backgroundColour: "yellow",
-        floorColour: "yellow",
+        backgroundColour: "F8E59A",
+        floorColour: "F2D434",
         object: "TorTavolo",
         titolo: "Casa della Gioia",
         storyCardM: "QuizJoyM",

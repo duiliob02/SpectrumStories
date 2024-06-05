@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var houses : [AnyHouse] = housesData
     var body: some View {
-        MapView(houses: houses)
+        LogoView()
     }
 }
 

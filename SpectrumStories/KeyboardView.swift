@@ -15,11 +15,12 @@ struct KeyboardView: View {
     var body: some View {
         ZStack{
             Rectangle()
-                .fill(Color.giallio)
+                .fill(Color.verdio)
                 .ignoresSafeArea()
             VStack {
                 Spacer()
-                Text("WHAT'S YOUR NAME?")
+                Text("Come ti chiami?")
+                    .textCase(.uppercase)
                     .font(.custom(Constants.font, size: 60))
                     .foregroundStyle(.white)
                 
@@ -96,7 +97,7 @@ struct KeyboardView: View {
                 
             }
             NavigationLink("OK") {
-                EmptyView()
+                MapView(houses: housesData)
             }
         } message: {
             Text("Are you sure about your choice?")

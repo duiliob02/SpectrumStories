@@ -12,11 +12,11 @@ struct LogoView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Rectangle()
-                    .fill(Color.giallio)
-                
+                Image("Background")
+                    .resizable()
+                    .scaledToFill()
                 VStack{
-                    Image("logo")
+                    Image("nomeApp")
                         .resizable()
                         .scaledToFit()
                         .frame(width: UIScreen.main.bounds.size.width/1.5)

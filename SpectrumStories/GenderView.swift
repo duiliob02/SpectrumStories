@@ -14,9 +14,11 @@ struct GenderView: View {
     var body: some View {
         ZStack{
             Rectangle()
-                .fill(Color.giallio)
+                .fill(Color.verdio)
             VStack{
-                Text("WHAT'S YOUR GENDER")
+                Text("scegli il tuo personaggio!")
+                    .textCase(.uppercase)
+                    .padding(.top)
                 HStack(spacing: 10) {
                     Button(action: {
                         gender = 0
@@ -27,7 +29,7 @@ struct GenderView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: UIScreen.main.bounds.width/4.5)
-                            Text("BOY")
+                            Text("JOE")
                         }
                     })
                     
@@ -41,7 +43,7 @@ struct GenderView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: UIScreen.main.bounds.width/3.5)
-                            Text("GIRL")
+                            Text("MIA")
                             
                         }
                     })
@@ -55,14 +57,14 @@ struct GenderView: View {
         .ignoresSafeArea()
         .navigationBarBackButtonHidden()
         .alert("Confirm", isPresented: $showAlert) {
-            Button("Cancel", role: .cancel) {
+            Button("Cancella", role: .cancel) {
                 
             }
             NavigationLink("OK") {
                 KeyboardView()
             }
         } message: {
-            Text("Are you sure about your choice?")
+            Text("Sei sicuro della scelta?")
         }
         
     }

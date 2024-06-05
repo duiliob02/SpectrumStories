@@ -13,6 +13,7 @@ struct HouseView<NextView: View>: View {
     @State var positionY : Double = 180
     @State private var activateNav = false
     var house : HouseModel<NextView>
+    @State var imageByGender : String = ""
     
     var body: some View {
         // da rimuovere quando saranno collegate con le altre view perche avremo gia un navigation Stack
@@ -20,7 +21,7 @@ struct HouseView<NextView: View>: View {
             GeometryReader { geo in
                 ZStack{
                     Rectangle()
-                        .fill(.orangio)
+                        .fill(Color(hex: house.backgroundColour))
                     
                     HStack{
                         Spacer()
@@ -32,7 +33,7 @@ struct HouseView<NextView: View>: View {
                         Spacer()
                     }
                     Pavimento(width: geo.size.width*0.2, height: 1.5)
-                        .fill(.orange)
+                        .fill(Color(hex: house.floorColour))
                     
                     Image((gender == 0) ? "male" : "female")
                         .resizable()
@@ -49,7 +50,7 @@ struct HouseView<NextView: View>: View {
                             withAnimation(.easeIn) {
                                 isImageShown.toggle()
                                 if isImageShown {
-                                    withAnimation(Animation.easeIn(duration: 1.5)) {
+                                    withAnimation(Animation.linear(duration: 2.5)) {
                                         positionY += 180
                                     }
                                 }
@@ -57,7 +58,7 @@ struct HouseView<NextView: View>: View {
                         }
                     
                     if isImageShown {
-                        Image((gender == 0) ? "QuizJoyM" : "QuizJoyF")
+                        Image((positionY < 270) ? "JoyBackCard" : imageByGender)
                             .resizable()
                             .scaledToFit()
                             .frame(width: geo.size.width / 2)
@@ -78,6 +79,9 @@ struct HouseView<NextView: View>: View {
                     
                 }
                 .ignoresSafeArea()
+                .onAppear {
+                    imageByGender = (gender == 0) ? "QuizJoyM" : "QuizJoyF"
+                }
             }
         
     }
@@ -132,5 +136,5 @@ struct Pavimento: Shape {
             ]
         )
     ],
-    nextView: AnyView(JoyActivityPresentationView())) ))
+                                                                                                                                                                                                             nextView: AnyView(JoyActivityPresentationView())) ), imageByGender: "")
 }
