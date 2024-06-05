@@ -527,6 +527,173 @@ import SwiftUI
 //    
 //]
 
+let houseJoy = AnyHouse(house: HouseModel(
+    backgroundColour: "yellow",
+    floorColour: "yellow",
+    object: "TorTavolo",
+    titolo: "Casa della Gioia",
+    storyCardM: "QuizJoyM",
+    storyCardF: "QuizJoyF",
+    quiz: QuizModel(
+        storyCardM: "QuizJoyM",
+        storyCardF: "QuizJoyF",
+        questions: [
+            QuestionModel(
+                question: "Dove sono i bambini?",
+                correctAnsw: 0,
+                answers: [
+                    "Ad una festa",
+                    "A lezione",
+                    "Dal dottore"
+                ]
+            ),
+            QuestionModel(
+                question: "Cosa stanno provando i bambini?",
+                correctAnsw: 1,
+                answers: [
+                    "Rabbia",
+                    "Felicità",
+                    "Tristezza"
+                ]
+            ),
+            QuestionModel(
+                question: "Perché sono felici?",
+                correctAnsw: 2,
+                answers: [
+                    "Mangiano le caramelle",
+                    "Sono allo zoo",
+                    "Sono a un compleanno"
+                ]
+            )
+        ],
+        nextView: JoyActivityPresentationView()
+    )
+), houseView: HouseView(house: HouseModel(
+    backgroundColour: "F8E59A",
+    floorColour: "F2D434",
+    object: "TorTavolo",
+    titolo: "Casa della Gioia",
+    storyCardM: "QuizJoyM",
+    storyCardF: "QuizJoyF",
+    quiz: QuizModel(
+        storyCardM: "QuizJoyM",
+        storyCardF: "QuizJoyF",
+        questions: [
+            QuestionModel(
+                question: "Dove sono i bambini?",
+                correctAnsw: 0,
+                answers: [
+                    "Ad una festa",
+                    "A lezione",
+                    "Dal dottore"
+                ]
+            ),
+            QuestionModel(
+                question: "Cosa stanno provando i bambini?",
+                correctAnsw: 1,
+                answers: [
+                    "Rabbia",
+                    "Felicità",
+                    "Tristezza"
+                ]
+            ),
+            QuestionModel(
+                question: "Perché sono felici?",
+                correctAnsw: 2,
+                answers: [
+                    "Mangiano le caramelle",
+                    "Sono allo zoo",
+                    "Sono a un compleanno"
+                ]
+            )
+        ],
+        nextView: JoyActivityPresentationView()
+    )
+)))
+let houseSad = AnyHouse(house: HouseModel(
+    backgroundColour: "blue",
+    floorColour: "blue",
+    object: "LibroTavolo",
+    titolo: "Casa della Tristezza",
+    storyCardM: "QuizJoyM",
+    storyCardF: "QuizJoyF",
+    quiz: QuizModel(
+        storyCardM: "QuizJoyM",
+        storyCardF: "QuizJoyF",
+        questions: [
+            QuestionModel(
+                question: "Dove sono i bambini?",
+                correctAnsw: 1,
+                answers: [
+                    "Allo zoo",
+                    "A scuola",
+                    "Dal dottore"
+                ]
+            ),
+            QuestionModel(
+                question: "Cosa sta provando?",
+                correctAnsw: 2,
+                answers: [
+                    "Rabbia",
+                    "Felicità",
+                    "Tristezza"
+                ]
+            ),
+            QuestionModel(
+                question: "Perché è triste?",
+                correctAnsw: 2,
+                answers: [
+                    "La mamma va via",
+                    "Va' dal dottore",
+                    "Deve studiare"
+                ]
+            )
+        ],
+        nextView: JoyActivityPresentationView()
+    )
+), houseView: HouseView(house: HouseModel(
+    backgroundColour: "blue",
+    floorColour: "blue",
+    object: "TorTavolo",
+    titolo: "Casa della Tristezza",
+    storyCardM: "QuizJoyM",
+    storyCardF: "QuizJoyF",
+    quiz: QuizModel(
+        storyCardM: "QuizJoyM",
+        storyCardF: "QuizJoyF",
+        questions: [
+            QuestionModel(
+                question: "Dove sono i bambini?",
+                correctAnsw: 1,
+                answers: [
+                    "Allo zoo",
+                    "A scuola",
+                    "Dal dottore"
+                ]
+            ),
+            QuestionModel(
+                question: "Cosa sta provando?",
+                correctAnsw: 2,
+                answers: [
+                    "Rabbia",
+                    "Felicità",
+                    "Tristezza"
+                ]
+            ),
+            QuestionModel(
+                question: "Perché è triste?",
+                correctAnsw: 2,
+                answers: [
+                    "La mamma va via",
+                    "Va' dal dottore",
+                    "Deve studiare"
+                ]
+            )
+        ],
+        nextView: JoyActivityPresentationView()
+    )
+)))
+
 let housesData = [
     AnyHouse(house: HouseModel(
         backgroundColour: "yellow",
@@ -612,89 +779,89 @@ let housesData = [
         )
     ))),
     // Add other houses similarly...
-//    AnyHouse(house: HouseModel(
-//        backgroundColour: "blue",
-//        floorColour: "blue",
-//        object: "TorTavolo",
-//        titolo: "Casa della Tristezza",
-//        storyCardM: "QuizJoyM",
-//        storyCardF: "QuizJoyF",
-//        quiz: QuizModel(
-//            storyCardM: "QuizJoyM",
-//            storyCardF: "QuizJoyF",
-//            questions: [
-//                QuestionModel(
-//                    question: "Dove sono i bambini?",
-//                    correctAnsw: 1,
-//                    answers: [
-//                        "Allo zoo",
-//                        "A scuola",
-//                        "Dal dottore"
-//                    ]
-//                ),
-//                QuestionModel(
-//                    question: "Cosa sta provando?",
-//                    correctAnsw: 2,
-//                    answers: [
-//                        "Rabbia",
-//                        "Felicità",
-//                        "Tristezza"
-//                    ]
-//                ),
-//                QuestionModel(
-//                    question: "Perché è triste?",
-//                    correctAnsw: 2,
-//                    answers: [
-//                        "La mamma va via",
-//                        "Va' dal dottore",
-//                        "Deve studiare"
-//                    ]
-//                )
-//            ],
-//            nextView: JoyActivityPresentationView()
-//        )
-//    ), houseView: HouseView(house: HouseModel(
-//        backgroundColour: "blue",
-//        floorColour: "blue",
-//        object: "TorTavolo",
-//        titolo: "Casa della Tristezza",
-//        storyCardM: "QuizJoyM",
-//        storyCardF: "QuizJoyF",
-//        quiz: QuizModel(
-//            storyCardM: "QuizJoyM",
-//            storyCardF: "QuizJoyF",
-//            questions: [
-//                QuestionModel(
-//                    question: "Dove sono i bambini?",
-//                    correctAnsw: 1,
-//                    answers: [
-//                        "Allo zoo",
-//                        "A scuola",
-//                        "Dal dottore"
-//                    ]
-//                ),
-//                QuestionModel(
-//                    question: "Cosa sta provando?",
-//                    correctAnsw: 2,
-//                    answers: [
-//                        "Rabbia",
-//                        "Felicità",
-//                        "Tristezza"
-//                    ]
-//                ),
-//                QuestionModel(
-//                    question: "Perché è triste?",
-//                    correctAnsw: 2,
-//                    answers: [
-//                        "La mamma va via",
-//                        "Va' dal dottore",
-//                        "Deve studiare"
-//                    ]
-//                )
-//            ],
-//            nextView: JoyActivityPresentationView()
-//        )
-//    )))
+    AnyHouse(house: HouseModel(
+        backgroundColour: "A4B3F8",
+        floorColour: "6181F2",
+        object: "LibroTavolo",
+        titolo: "Casa della Tristezza",
+        storyCardM: "QuizSadM",
+        storyCardF: "QuizSadF",
+        quiz: QuizModel(
+            storyCardM: "QuizSadM",
+            storyCardF: "QuizSadF",
+            questions: [
+                QuestionModel(
+                    question: "Dove sono i bambini?",
+                    correctAnsw: 1,
+                    answers: [
+                        "Allo zoo",
+                        "A scuola",
+                        "Dal dottore"
+                    ]
+                ),
+                QuestionModel(
+                    question: "Cosa sta provando?",
+                    correctAnsw: 2,
+                    answers: [
+                        "Rabbia",
+                        "Felicità",
+                        "Tristezza"
+                    ]
+                ),
+                QuestionModel(
+                    question: "Perché è triste?",
+                    correctAnsw: 2,
+                    answers: [
+                        "La mamma va via",
+                        "Va' dal dottore",
+                        "Deve studiare"
+                    ]
+                )
+            ],
+            nextView: EmptyView()
+        )
+    ), houseView: HouseView(house: HouseModel(
+        backgroundColour: "A4B3F8",
+        floorColour: "6181F2",
+        object: "LibroTavolo",
+        titolo: "Casa della Tristezza",
+        storyCardM: "QuizSadM",
+        storyCardF: "QuizSadF",
+        quiz: QuizModel(
+            storyCardM: "QuizSadM",
+            storyCardF: "QuizSadF",
+            questions: [
+                QuestionModel(
+                    question: "Dove sono i bambini?",
+                    correctAnsw: 1,
+                    answers: [
+                        "Allo zoo",
+                        "A scuola",
+                        "Dal dottore"
+                    ]
+                ),
+                QuestionModel(
+                    question: "Cosa sta provando?",
+                    correctAnsw: 2,
+                    answers: [
+                        "Rabbia",
+                        "Felicità",
+                        "Tristezza"
+                    ]
+                ),
+                QuestionModel(
+                    question: "Perché è triste?",
+                    correctAnsw: 2,
+                    answers: [
+                        "La mamma va via",
+                        "Va' dal dottore",
+                        "Deve studiare"
+                    ]
+                )
+            ],
+            nextView: EmptyView()
+        )
+    )))
 ]
 
 

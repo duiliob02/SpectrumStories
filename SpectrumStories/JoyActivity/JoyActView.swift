@@ -13,6 +13,9 @@ struct JoyActView: View {
     @State private var taskCompleted = false
     @State private var countFaces = 0
     
+    let house0 = houseJoy
+    let house1 = houseSad
+    
     let columns = [
             GridItem(.flexible()),
             GridItem(.flexible()),
@@ -54,7 +57,7 @@ struct JoyActView: View {
                     }
             }
                 if countFaces == 3 {
-                    AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Congratulazioni!\nOra torniamo alla mappa!", azione: "Ok", bgRectColor: .verdio), showAlert: $taskCompleted, nextView: MapView(houses: housesData), lastQuestion: true)
+                    AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Congratulazioni!\nOra torniamo alla mappa!", azione: "Ok", bgRectColor: .verdio), showAlert: $taskCompleted, nextView: MapView(house0: house0, house1: house1, houses: housesData), lastQuestion: true)
                 }
             
         }

@@ -86,7 +86,7 @@ struct QuizView<NextView: View>: View {
                         }
                         if correctAlert {
                             if correctCount == 3 {
-                                AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Ottimo!\nOra giochiamo insieme", azione: "avanti", bgRectColor: .verdio), showAlert: $correctAlert, nextView: JoyActivityPresentationView(), lastQuestion: true)
+                                AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Ottimo!\nOra giochiamo insieme", azione: "avanti", bgRectColor: .verdio), showAlert: $correctAlert, nextView: quiz.nextView, lastQuestion: true)
                                     
                             } else {
                                 AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Congratulazioni!", azione: "avanti", bgRectColor: .verdio), showAlert: $correctAlert, nextView: EmptyView())

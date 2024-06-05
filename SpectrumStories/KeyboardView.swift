@@ -12,6 +12,10 @@ struct KeyboardView: View {
     @State private var showAlert = false
     @AppStorage("userName") var userName = ""
     
+    let house0 = houseJoy
+    let house1 = houseSad
+    let houses = housesData
+    
     var body: some View {
         ZStack{
             Rectangle()
@@ -97,7 +101,7 @@ struct KeyboardView: View {
                 
             }
             NavigationLink("OK") {
-                MapView(houses: housesData)
+                MapView(house0: house0, house1: house1, houses: houses)
             }
         } message: {
             Text("Are you sure about your choice?")
