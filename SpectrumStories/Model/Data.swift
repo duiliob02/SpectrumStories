@@ -527,94 +527,10 @@ import SwiftUI
 //    
 //]
 
-let houseJoy = AnyHouse(house: HouseModel(
-    backgroundColour: "yellow",
-    floorColour: "yellow",
-    object: "TorTavolo",
-    titolo: "Casa della Gioia",
-    storyCardM: "QuizJoyM",
-    storyCardF: "QuizJoyF",
-    quiz: QuizModel(
-        storyCardM: "QuizJoyM",
-        storyCardF: "QuizJoyF",
-        questions: [
-            QuestionModel(
-                question: "Dove sono i bambini?",
-                correctAnsw: 0,
-                answers: [
-                    "Ad una festa",
-                    "A lezione",
-                    "Dal dottore"
-                ]
-            ),
-            QuestionModel(
-                question: "Cosa stanno provando i bambini?",
-                correctAnsw: 1,
-                answers: [
-                    "Rabbia",
-                    "Felicità",
-                    "Tristezza"
-                ]
-            ),
-            QuestionModel(
-                question: "Perché sono felici?",
-                correctAnsw: 2,
-                answers: [
-                    "Mangiano le caramelle",
-                    "Sono allo zoo",
-                    "Sono a un compleanno"
-                ]
-            )
-        ],
-        nextView: JoyActivityPresentationView()
-    )
-), houseView: HouseView(house: HouseModel(
-    backgroundColour: "F8E59A",
-    floorColour: "F2D434",
-    object: "TorTavolo",
-    titolo: "Casa della Gioia",
-    storyCardM: "QuizJoyM",
-    storyCardF: "QuizJoyF",
-    quiz: QuizModel(
-        storyCardM: "QuizJoyM",
-        storyCardF: "QuizJoyF",
-        questions: [
-            QuestionModel(
-                question: "Dove sono i bambini?",
-                correctAnsw: 0,
-                answers: [
-                    "Ad una festa",
-                    "A lezione",
-                    "Dal dottore"
-                ]
-            ),
-            QuestionModel(
-                question: "Cosa stanno provando i bambini?",
-                correctAnsw: 1,
-                answers: [
-                    "Rabbia",
-                    "Felicità",
-                    "Tristezza"
-                ]
-            ),
-            QuestionModel(
-                question: "Perché sono felici?",
-                correctAnsw: 2,
-                answers: [
-                    "Mangiano le caramelle",
-                    "Sono allo zoo",
-                    "Sono a un compleanno"
-                ]
-            )
-        ],
-        nextView: JoyActivityPresentationView()
-    )
-)))
-
 let housesData = [
     AnyHouse(house: HouseModel(
-        backgroundColour: "yellow",
-        floorColour: "yellow",
+        backgroundColour: "F8E59A",
+        floorColour: "F2D434",
         object: "TorTavolo",
         titolo: "Casa della Gioia",
         storyCardM: "QuizJoyM",
