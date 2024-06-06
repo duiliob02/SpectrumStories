@@ -16,6 +16,7 @@ struct HouseView<NextView: View>: View {
     @State var imageByGender : String = ""
     var nextView : NextView?
     
+    
     var body: some View {
         
         GeometryReader { geo in
@@ -38,42 +39,47 @@ struct HouseView<NextView: View>: View {
                 Image((gender == 0) ? "male" : "female")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: geo.size.height / 5)
-                    .position(CGPoint(x: geo.size.width / 10, y: geo.size.height / 1.3))
+                    .frame(height: geo.size.height / 2)
+                    .position(CGPoint(x: geo.size.width / 9, y: geo.size.height / 1.3))
                 
+                let notPurple = CGPoint(x: geo.size.width/2, y: geo.size.height/1.45)
+                let purple = CGPoint(x: geo.size.width/2, y: geo.size.height/2.5)
                 Image(house.object)
                     .resizable()
                     .scaledToFit()
                     .frame(height: geo.size.height/2.5)
-                    .position(x: geo.size.width/2, y: geo.size.height/1.55)
+                    .position((house.object != "Finestra") ? notPurple : purple)
                     .onTapGesture {
-                        withAnimation(.easeIn) {
-                            isImageShown.toggle()
-                            if isImageShown {
-                                withAnimation(Animation.linear(duration: 2.5)) {
-                                    positionY += 180
-                                }
-                            }
+                        isImageShown.toggle()
+                        withAnimation(Animation.default.delay(0.5).speed(0.6)) {
+                            positionY += 180
                         }
                     }
                 
                 if isImageShown {
-                    Image((positionY < 270) ? "JoyBackCard" : imageByGender)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: geo.size.width / 2)
-                        .rotation3DEffect(
-                            .degrees(positionY),
-                            axis: (x:0,y:1,z:0)
-                        )
-                        .transition(.opacity)
-                        .onTapGesture {
-                            activateNav.toggle()
-                        }
-                        .navigationDestination(isPresented: $activateNav) {
-                            QuizView(quiz:  house.quiz, bgColour: Color(hex: house.floorColour))
-                        }
-                    
+                    ZStack {
+                        Image("JoyBackCard")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: geo.size.width / 2)
+                            .opacity(positionY >= 90 && positionY < 270 ? 1 : 0)
+                        
+                        Image(imageByGender)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: geo.size.width / 2)
+                            .opacity(positionY < 90 || positionY >= 270 ? 1 : 0)
+                    }
+                    .rotation3DEffect(
+                        .degrees(positionY),
+                        axis: (x: 0, y: 1, z: 0)
+                    )
+                    .onTapGesture {
+                        activateNav.toggle()
+                    }
+                    .navigationDestination(isPresented: $activateNav) {
+                        QuizView(quiz: house.quiz, bgColour: Color(hex: house.floorColour))
+                    }
                 }
                 
                 
@@ -107,7 +113,7 @@ struct Pavimento: Shape {
 
 
 #Preview {
-    HouseView<AnyView>(house: HouseModel(backgroundColour: "yellow", floorColour: "yellow", object: "TorTavolo", titolo: "casa della gioia", storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", quiz: QuizModel(storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", questions: [
+    HouseView<AnyView>(house: HouseModel(backgroundColour: "F8E59A", floorColour: "f2d434", object: "TorTavolo", titolo: "casa della gioia", storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", quiz: QuizModel(storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", questions: [
         QuestionModel(
             question: "Dove sono i bambini?",
             correctAnsw: 0,
@@ -136,5 +142,5 @@ struct Pavimento: Shape {
             ]
         )
     ],
-                                                                                                                                                                                        nextView: AnyView(JoyActivityPresentationView())) ))
+                                                                                                                                                                                                             nextView: AnyView(JoyActivityPresentationView())) ))
 }

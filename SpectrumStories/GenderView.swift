@@ -10,6 +10,7 @@ import SwiftUI
 struct GenderView: View {
     @State private var showAlert = false
     @AppStorage("gender") var gender : Int = 0
+    let houses = housesData
     
     var body: some View {
         ZStack{
@@ -61,7 +62,7 @@ struct GenderView: View {
                 
             }
             NavigationLink("OK") {
-                KeyboardView()
+                MapView(houses: houses)
             }
         } message: {
             Text("Sei sicuro della scelta?")

@@ -11,6 +11,7 @@ struct KeyboardView: View {
     @State private var nameText : String = ""
     @State private var showAlert = false
     @AppStorage("userName") var userName = ""
+    @State private var fieldEmpty = true
     
     let houses = housesData
     
@@ -53,6 +54,7 @@ struct KeyboardView: View {
                                 
                             }
                     })
+                    .disabled(fieldEmpty)
                 }
                 .padding(.bottom, 100)
                 
@@ -67,6 +69,7 @@ struct KeyboardView: View {
                                 .cornerRadius(5)
                                 .onTapGesture {
                                     nameText.append(KeyBoard._keyboard[rowIndex][columnIndex])
+                                    fieldEmpty = false
                                 }
                         }
                     }
@@ -86,6 +89,9 @@ struct KeyboardView: View {
                         .background(Color.giallio2)
                         .onTapGesture {
                             _ = nameText.popLast()
+                            if nameText.isEmpty {
+                                fieldEmpty = true
+                            }
                         }
                     
                 }
