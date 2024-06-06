@@ -71,7 +71,7 @@ struct HouseView<NextView: View>: View {
                             activateNav.toggle()
                         }
                         .navigationDestination(isPresented: $activateNav) {
-                            QuizView(quiz:  house.quiz, bgColour: Color(hex: house.backgroundColour))
+                            QuizView(quiz:  house.quiz, bgColour: Color(hex: house.floorColour))
                         }
                     
                 }

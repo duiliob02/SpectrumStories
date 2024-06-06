@@ -10,9 +10,6 @@ import SwiftUI
 struct MapView: View {
     @AppStorage("gender") var gender = 42
     
-    var house0: AnyHouse
-    var house1 : AnyHouse
-    
     var houses: [AnyHouse]
     
     @State private var nav1 = false
@@ -51,8 +48,8 @@ struct MapView: View {
                     //                    }
                     houseView(index: 0, width: w, height: h, position: CGPoint(x: w * 0.225, y: h / 4.8), isPresented: $nav1)
                     houseView(index: 1, width: w, height: h, position: CGPoint(x: w / 1.165, y: h * 0.23), isPresented: $nav2)
-//                    houseView(index: 2, width: w, height: h, position: CGPoint(x: w * 0.135, y: h / 1.75), isPresented: $nav3)
-//                    houseView(index: 3, width: w, height: h, position: CGPoint(x: w / 1.135, y: h / 1.46), isPresented: $nav4)
+                    houseView(index: 2, width: w, height: h, position: CGPoint(x: w * 0.135, y: h / 1.75), isPresented: $nav3)
+                    houseView(index: 3, width: w, height: h, position: CGPoint(x: w / 1.135, y: h / 1.46), isPresented: $nav4)
                     
                     
                 }
@@ -88,20 +85,6 @@ struct MapView: View {
             return "FearHouse"
         default:
             return ""
-        }
-    }
-    func houseType(for index: Int) -> AnyHouse {
-        switch index {
-        case 0:
-            return house0
-        case 1:
-            return house1
-//        case 2:
-//            return "AngerHouse"
-//        case 3:
-//            return "FearHouse"
-        default:
-            return house0
         }
     }
     
