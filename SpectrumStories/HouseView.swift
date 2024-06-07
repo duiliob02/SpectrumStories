@@ -7,6 +7,21 @@
 
 import SwiftUI
 
+struct FlippingCard : View {
+    let imageName : String
+    let width : CGFloat
+    @Binding var degree : Double
+    
+    var body : some View {
+        Image(imageName)
+            .resizable()
+            .scaledToFit()
+            .frame(width: width / 2)
+            .rotation3DEffect(.degrees(degree), axis: (x:0, y:1,z:0))
+    }
+    
+}
+
 struct HouseView<NextView: View>: View {
     @AppStorage("gender") var gender = 42
     @State var isImageShown = false
@@ -16,6 +31,10 @@ struct HouseView<NextView: View>: View {
     @State var imageByGender : String = ""
     var nextView : NextView?
     
+    @State var backDegree = 0.0
+    @State var frontDegree = -90.0
+    @State var flipped = false
+    let durationAndDelay = 0.5
     
     var body: some View {
         
@@ -51,29 +70,16 @@ struct HouseView<NextView: View>: View {
                     .position((house.object != "Finestra") ? notPurple : purple)
                     .onTapGesture {
                         isImageShown.toggle()
-                        withAnimation(Animation.default.delay(0.5).speed(0.6)) {
-                            positionY += 180
-                        }
                     }
                 
                 if isImageShown {
                     ZStack {
-                        Image("JoyBackCard")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: geo.size.width / 2)
-                            .opacity(positionY >= 90 && positionY < 270 ? 1 : 0)
-                        
-                        Image(imageByGender)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: geo.size.width / 2)
-                            .opacity(positionY < 90 || positionY >= 270 ? 1 : 0)
+                        FlippingCard(imageName: "JoyBackCard", width: geo.size.width, degree: $backDegree)
+                        FlippingCard(imageName: imageByGender, width: geo.size.width, degree: $frontDegree)
                     }
-                    .rotation3DEffect(
-                        .degrees(positionY),
-                        axis: (x: 0, y: 1, z: 0)
-                    )
+                    .onAppear {
+                        flipCard()
+                    }
                     .onTapGesture {
                         activateNav.toggle()
                     }
@@ -90,6 +96,25 @@ struct HouseView<NextView: View>: View {
             }
         }
         
+    }
+    
+    private func flipCard() {
+        flipped.toggle()
+        if flipped {
+            withAnimation(.linear(duration: durationAndDelay)) {
+                backDegree = 90
+            }
+            withAnimation(.linear(duration: durationAndDelay).delay(durationAndDelay)) {
+                frontDegree = 0
+            }
+        } else {
+            withAnimation(.linear(duration: durationAndDelay)) {
+                frontDegree = -90
+            }
+            withAnimation(.linear(duration: durationAndDelay).delay(durationAndDelay)) {
+                backDegree = 0
+            }
+        }
     }
 }
 
