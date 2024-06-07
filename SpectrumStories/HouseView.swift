@@ -61,6 +61,7 @@ struct HouseView<NextView: View>: View {
                     .frame(height: geo.size.height / 2)
                     .position(CGPoint(x: geo.size.width / 9, y: geo.size.height / 1.3))
                 
+                // Posizioni oggetti case
                 let notPurple = CGPoint(x: geo.size.width/2, y: geo.size.height/1.45)
                 let purple = CGPoint(x: geo.size.width/2, y: geo.size.height/2.5)
                 Image(house.object)
@@ -74,7 +75,7 @@ struct HouseView<NextView: View>: View {
                 
                 if isImageShown {
                     ZStack {
-                        FlippingCard(imageName: "JoyBackCard", width: geo.size.width, degree: $backDegree)
+                        FlippingCard(imageName: house.backCard, width: geo.size.width, degree: $backDegree)
                         FlippingCard(imageName: imageByGender, width: geo.size.width, degree: $frontDegree)
                     }
                     .onAppear {
@@ -138,7 +139,7 @@ struct Pavimento: Shape {
 
 
 #Preview {
-    HouseView<AnyView>(house: HouseModel(backgroundColour: "F8E59A", floorColour: "f2d434", object: "TorTavolo", titolo: "casa della gioia", storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", quiz: QuizModel(storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", questions: [
+    HouseView<AnyView>(house: HouseModel(backgroundColour: "F8E59A", floorColour: "f2d434", object: "TorTavolo", titolo: "casa della gioia", storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", backCard: "JoyBackCard", quiz: QuizModel(storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", questions: [
         QuestionModel(
             question: "Dove sono i bambini?",
             correctAnsw: 0,

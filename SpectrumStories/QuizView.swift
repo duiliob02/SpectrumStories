@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuizView<NextView: View>: View {
-    @AppStorage("gender") var gender = 0
+    @AppStorage("gender") var gender = 42
     var quiz : QuizModel<NextView>
     var bgColour : Color
     
@@ -78,7 +78,7 @@ struct QuizView<NextView: View>: View {
                     
                     VStack(alignment: .center){
                         if wrongAlert {
-                            AlertView(alert: AlertModel(imageM: "StickerM0", imageF: "stickerF0", testo: "Proviamo di nuovo", azione: "riprova", bgRectColor: bgColour), showAlert: $wrongAlert, nextView: EmptyView())
+                            AlertView(alert: AlertModel(imageM: "StickerM0", imageF: "StickerF0", testo: "Proviamo di nuovo", azione: "riprova", bgRectColor: bgColour), showAlert: $wrongAlert, nextView: EmptyView())
                     
                             
                             

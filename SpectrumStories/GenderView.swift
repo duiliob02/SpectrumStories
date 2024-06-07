@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GenderView: View {
     @State private var showAlert = false
-    @AppStorage("gender") var gender : Int = 0
+    @AppStorage("gender") var gender : Int = 42
     let houses = housesData
     
     var body: some View {
@@ -17,7 +17,7 @@ struct GenderView: View {
             Rectangle()
                 .fill(Color.verdio)
             VStack{
-                Text("scegli il tuo personaggio!")
+                Text("con chi vuoi giocare?")
                     .textCase(.uppercase)
                     .foregroundStyle(Color(hex: "2F2F2F"))
                     .padding(.top)

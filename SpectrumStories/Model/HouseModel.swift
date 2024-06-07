@@ -16,5 +16,6 @@ struct HouseModel<NextView: View> {
     let titolo: String
     let storyCardM: String
     let storyCardF: String
+    let backCard: String
     let quiz: QuizModel<NextView>
 }

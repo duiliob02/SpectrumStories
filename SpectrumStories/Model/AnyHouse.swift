@@ -21,6 +21,7 @@ struct AnyHouse: Identifiable {
             titolo: house.titolo,
             storyCardM: house.storyCardM,
             storyCardF: house.storyCardF,
+            backCard: house.backCard,
             quiz: QuizModel(
                 storyCardM: house.quiz.storyCardM,
                 storyCardF: house.quiz.storyCardF,

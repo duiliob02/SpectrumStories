@@ -16,6 +16,7 @@ let housesData = [
         titolo: "Casa della Tristezza",
         storyCardM: "QuizSadM",
         storyCardF: "QuizSadF",
+        backCard: "SadBackCard",
         quiz: QuizModel(
             storyCardM: "QuizSadM",
             storyCardF: "QuizSadF",
@@ -58,6 +59,7 @@ let housesData = [
         titolo: "Casa della Gioia",
         storyCardM: "QuizJoyM",
         storyCardF: "QuizJoyF",
+        backCard: "JoyBackCard",
         quiz: QuizModel(
             storyCardM: "QuizJoyM",
             storyCardF: "QuizJoyF",
@@ -100,6 +102,7 @@ let housesData = [
         titolo: "Casa della Rabbia",
         storyCardM: "QuizAng",
         storyCardF: "QuizAng",
+        backCard: "AngBackCard",
         quiz: QuizModel(
             storyCardM: "QuizAng",
             storyCardF: "QuizAng",
@@ -142,6 +145,7 @@ let housesData = [
         titolo: "Casa della Paura",
         storyCardM: "QuizFearM",
         storyCardF: "QuizFearF",
+        backCard: "FearBackCard",
         quiz: QuizModel(
             storyCardM: "QuizFearM",
             storyCardF: "QuizFearF",

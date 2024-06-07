@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LogoView: View {
+    @AppStorage("gender") var gender = 42
     
     var body: some View {
         NavigationStack {
@@ -23,7 +24,11 @@ struct LogoView: View {
                         .padding(.bottom, 20)
                     
                     NavigationLink {
-                        GenderView()
+                        if gender != 42 {
+                            MapView(houses: housesData)
+                        } else {
+                            GenderView()
+                        }
                     } label: {
                         Image("start")
                             .resizable()
