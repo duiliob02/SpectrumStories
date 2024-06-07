@@ -76,9 +76,9 @@ struct MapView: View {
     func houseImageName(for index: Int) -> String {
         switch index {
         case 0:
-            return "JoyHouse"
-        case 1:
             return "SadnessHouse"
+        case 1:
+            return "JoyHouse"
         case 2:
             return "AngerHouse"
         case 3:

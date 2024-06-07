@@ -37,16 +37,20 @@ struct JoyActView: View {
                                                 face.tapped = true
                                                 countFaces += 1
                                                 if countFaces == 3 {
-                                                    taskCompleted.toggle()
+                                                    withAnimation(.smooth) {
+                                                        taskCompleted.toggle()
+                                                    }
                                                 }
                                             }
                                             
                                         })
                                         .overlay {
                                             if face.tapped{
-                                                Image(systemName: "xmark")
+                                                Image(systemName: "checkmark.circle")
                                                     .resizable()
                                                     .scaledToFit()
+                                                    .frame(width: geo.size.width/10)
+                                                    .foregroundStyle(.green)
                                             }
                                         }
                                     

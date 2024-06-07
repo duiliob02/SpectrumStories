@@ -19,7 +19,9 @@ struct GenderView: View {
             VStack{
                 Text("scegli il tuo personaggio!")
                     .textCase(.uppercase)
+                    .foregroundStyle(Color(hex: "2F2F2F"))
                     .padding(.top)
+                    
                 HStack(spacing: 10) {
                     Button(action: {
                         gender = 0

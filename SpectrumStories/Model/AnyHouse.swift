@@ -11,9 +11,9 @@ import SwiftUI
 struct AnyHouse: Identifiable {
     let id = UUID()
     let house: HouseModel<AnyView>
-    let houseView: AnyView
+    
 
-    init<NextView: View>(house: HouseModel<NextView>, houseView: HouseView<NextView>) {
+    init<NextView: View>(house: HouseModel<NextView>) {
         self.house = HouseModel(
             backgroundColour: house.backgroundColour,
             floorColour: house.floorColour,
@@ -28,6 +28,5 @@ struct AnyHouse: Identifiable {
                 nextView: AnyView(house.quiz.nextView)
             )
         )
-        self.houseView = AnyView(houseView)
     }
 }
