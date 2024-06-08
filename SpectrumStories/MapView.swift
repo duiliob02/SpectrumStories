@@ -17,6 +17,8 @@ struct MapView: View {
     @State private var nav3 = false
     @State private var nav4 = false
     
+    @State private var alert = false
+    
     var body: some View {
         
         GeometryReader { geo in
@@ -34,18 +36,6 @@ struct MapView: View {
                     .frame(width: w*0.23)
                     .position(CGPoint(x: w/1.75, y: h*0.125))
                 
-                //                    ForEach(houses.indices, id: \.self) { index in
-                //                        let house = houses[index]
-                //                        let position = position(index: index, w: w, h: h)
-                //
-                //                        NavigationLink(destination: house.houseView) {
-                //                            Image(houseImageName(for: index))
-                //                                .resizable()
-                //                                .scaledToFit()
-                //                                .frame(width: w*0.23)
-                //                                .position(position)
-                //                        }
-                //                    }
                 houseView(index: 0, width: w, height: h, position: CGPoint(x: w * 0.225, y: h / 4.8), isPresented: $nav1)
                 houseView(index: 1, width: w, height: h, position: CGPoint(x: w / 1.165, y: h * 0.23), isPresented: $nav2)
                 houseView(index: 2, width: w, height: h, position: CGPoint(x: w * 0.135, y: h / 1.75), isPresented: $nav3)
@@ -53,9 +43,57 @@ struct MapView: View {
                 
                 
             }
+            .overlay {
+                if alert {
+                    ZStack {
+                        Rectangle()
+                            .fill(.white.opacity(0.5))
+                            .ignoresSafeArea()
+                        RoundedRectangle(cornerRadius: 25.0)
+                            .foregroundStyle(.verdio)
+                            .frame(width: geo.size.width/2, height: geo.size.height/2)
+                            .overlay(alignment: .topTrailing) {
+                                Button(action: {
+                                    withAnimation {
+                                        alert.toggle()
+                                    }
+                                }, label: {
+                                    Text("x")
+                                        .foregroundStyle(.white)
+                                        .font(.custom(Constants.font, size: 60))
+                                        .bold()
+                                        .padding(10)
+                                        .padding(.horizontal,10)
+                                        .background{
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .fill(Color(hex: "E26D5A"))
+                                                
+                                        }
+                                })
+                                .padding(30)
+                            }
+                            
+                        
+                        VStack{
+                            Text("BENVENUTO NEL VILLAGGIO!" +
+                                 "CLICCA SU UNA DELLE CASETTE COLORATE PER COMINCIARE AD IMPARARE!")
+                            .multilineTextAlignment(.center)
+                        }
+                        .frame(width: geo.size.width/2, height: geo.size.height/2)
+                        .font(.custom(Constants.font, size: 50))
+                        .offset(y:geo.size.height/30)
+                        
+                    }
+                }
+            }
         }
         .ignoresSafeArea()
         .navigationBarBackButtonHidden()
+        .onAppear(perform: {
+            withAnimation {
+                alert.toggle()
+            }
+        })
         
     }
     
@@ -106,6 +144,6 @@ struct MapView: View {
 
 
 
-//#Preview {
-//    MapView(houses: [])
-//}
+#Preview {
+    MapView(houses: housesData)
+}

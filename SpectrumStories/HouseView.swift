@@ -36,6 +36,8 @@ struct HouseView<NextView: View>: View {
     @State var flipped = false
     let durationAndDelay = 0.5
     
+    @State private var alert = false
+    
     var body: some View {
         
         GeometryReader { geo in
@@ -46,7 +48,7 @@ struct HouseView<NextView: View>: View {
                 HStack{
                     Spacer()
                     Text(house.titolo.uppercased())
-                        .foregroundStyle(.black)
+                        .foregroundStyle(Color(hex: "2F2F2F"))
                         .font(.custom(Constants.font, size: 50))
                         .position(CGPoint(x: geo.size.width/1.5, y: 100.0))
                         .padding(.trailing)
@@ -94,8 +96,55 @@ struct HouseView<NextView: View>: View {
             .ignoresSafeArea()
             .onAppear {
                 imageByGender = (gender == 0) ? house.storyCardM : house.storyCardF
+                withAnimation {
+                    alert.toggle()
+                }
+            }
+            .overlay {
+                if alert {
+                    ZStack {
+                        Rectangle()
+                            .fill(.white.opacity(0.5))
+                            .ignoresSafeArea()
+                        RoundedRectangle(cornerRadius: 25.0)
+                            .foregroundStyle(Color(hex: house.floorColour))
+                            .frame(width: geo.size.width/2, height: geo.size.height/2)
+                            .overlay(alignment: .topTrailing) {
+                                Button(action: {
+                                    withAnimation {
+                                        alert.toggle()
+                                    }
+                                }, label: {
+                                    Text("x")
+                                        .foregroundStyle(.white)
+                                        .font(.custom(Constants.font, size: 60))
+                                        .bold()
+                                        .padding(10)
+                                        .padding(.horizontal,10)
+                                        .background{
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .fill(Color(hex: "9C8C00"))
+                                                
+                                        }
+                                })
+                                .padding(30)
+                            }
+                            
+                        
+                        VStack{
+                            Text("PROVA A CLICCARE SU UNO DEGLI OGGETTI NELLA CASA PER SCOPRIRE COSA SUCCEDE!")
+                            .multilineTextAlignment(.center)
+                            .foregroundStyle(Color(hex: "2F2F2F"))
+                        }
+                        .frame(width: geo.size.width/2, height: geo.size.height/2)
+                        .font(.custom(Constants.font, size: 50))
+                        .offset(y:geo.size.height/30)
+                        
+                    }
+                }
             }
         }
+        
         
     }
     

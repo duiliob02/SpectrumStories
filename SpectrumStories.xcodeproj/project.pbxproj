@@ -30,6 +30,7 @@
 		E6B2B0E92BFA849500FDE381 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B2B0E82BFA849500FDE381 /* Constants.swift */; };
 		E6B2B0EB2BFA887200FDE381 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B2B0EA2BFA887200FDE381 /* LogoView.swift */; };
 		E6B2B0ED2BFA889900FDE381 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B2B0EC2BFA889900FDE381 /* GenderView.swift */; };
+		E6E872902C14BCA100BFFFC2 /* TreDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E8728F2C14BCA100BFFFC2 /* TreDButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		E6B2B0E82BFA849500FDE381 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E6B2B0EA2BFA887200FDE381 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		E6B2B0EC2BFA889900FDE381 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
+		E6E8728F2C14BCA100BFFFC2 /* TreDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreDButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				A0FA464B2BFB963F00902DB0 /* HouseView.swift */,
 				A04557032C0627AB0023F08D /* QuizView.swift */,
 				E64BD7372BFF7A7D00F0B271 /* AlertView.swift */,
+				E6E8728F2C14BCA100BFFFC2 /* TreDButton.swift */,
 				E614B95A2C0F646B00193F9E /* JoyActivity */,
 				E65520152C00D51900F1A2E1 /* Model */,
 				A0A932D22BF79DC3008F76E5 /* Assets.xcassets */,
@@ -236,6 +239,7 @@
 				E614B95C2C0F648900193F9E /* JoyActivityPresentationView.swift in Sources */,
 				A0CB63092C0DF09400D3ECB1 /* MapView.swift in Sources */,
 				A045570A2C0628BF0023F08D /* QuestionModel.swift in Sources */,
+				E6E872902C14BCA100BFFFC2 /* TreDButton.swift in Sources */,
 				A04557082C06286E0023F08D /* QuizModel.swift in Sources */,
 				E614B9622C0F9BA500193F9E /* AnyHouse.swift in Sources */,
 				A04557062C0627EA0023F08D /* HouseModel.swift in Sources */,
