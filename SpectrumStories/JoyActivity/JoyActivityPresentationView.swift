@@ -12,7 +12,7 @@ struct JoyActivityPresentationView: View {
         GeometryReader { geo in
             ZStack {
                 Rectangle()
-                    .fill(.bgJoyAct)
+                    .fill(.bgAct)
                 VStack{
                     Text("TROVA TUTTE LE FACCE FELICI")
                         .font(.custom(Constants.font, size: 60))

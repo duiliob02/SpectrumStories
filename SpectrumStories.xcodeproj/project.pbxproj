@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A01ACA532C14ACE500172D5E /* AngActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01ACA522C14ACE500172D5E /* AngActivityView.swift */; };
+		A03DCBCC2C135D6A005BF208 /* AngActivityPresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DCBCB2C135D6A005BF208 /* AngActivityPresentationView.swift */; };
 		A04557042C0627AB0023F08D /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04557032C0627AB0023F08D /* QuizView.swift */; };
 		A04557062C0627EA0023F08D /* HouseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04557052C0627EA0023F08D /* HouseModel.swift */; };
 		A04557082C06286E0023F08D /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04557072C06286E0023F08D /* QuizModel.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A01ACA522C14ACE500172D5E /* AngActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngActivityView.swift; sourceTree = "<group>"; };
+		A03DCBCB2C135D6A005BF208 /* AngActivityPresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngActivityPresentationView.swift; sourceTree = "<group>"; };
 		A04557032C0627AB0023F08D /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		A04557052C0627EA0023F08D /* HouseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseModel.swift; sourceTree = "<group>"; };
 		A04557072C06286E0023F08D /* QuizModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
@@ -73,6 +77,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A03DCBCA2C135D4C005BF208 /* AngActivity */ = {
+			isa = PBXGroup;
+			children = (
+				A03DCBCB2C135D6A005BF208 /* AngActivityPresentationView.swift */,
+				A01ACA522C14ACE500172D5E /* AngActivityView.swift */,
+			);
+			path = AngActivity;
+			sourceTree = "<group>";
+		};
 		A0A932C22BF79DC1008F76E5 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +117,7 @@
 				E64BD7372BFF7A7D00F0B271 /* AlertView.swift */,
 				E6E8728F2C14BCA100BFFFC2 /* TreDButton.swift */,
 				E614B95A2C0F646B00193F9E /* JoyActivity */,
+				A03DCBCA2C135D4C005BF208 /* AngActivity */,
 				E65520152C00D51900F1A2E1 /* Model */,
 				A0A932D22BF79DC3008F76E5 /* Assets.xcassets */,
 				A0A932DE2BF7A0EF008F76E5 /* Coiny */,
@@ -235,11 +249,16 @@
 				E64BD7382BFF7A7D00F0B271 /* AlertView.swift in Sources */,
 				A0FA464C2BFB963F00902DB0 /* HouseView.swift in Sources */,
 				E614B9642C0FA72400193F9E /* ContentView.swift in Sources */,
+				A01ACA532C14ACE500172D5E /* AngActivityView.swift in Sources */,
 				E6B2B0EB2BFA887200FDE381 /* LogoView.swift in Sources */,
 				E614B95C2C0F648900193F9E /* JoyActivityPresentationView.swift in Sources */,
 				A0CB63092C0DF09400D3ECB1 /* MapView.swift in Sources */,
 				A045570A2C0628BF0023F08D /* QuestionModel.swift in Sources */,
+<<<<<<< Updated upstream
 				E6E872902C14BCA100BFFFC2 /* TreDButton.swift in Sources */,
+=======
+				A03DCBCC2C135D6A005BF208 /* AngActivityPresentationView.swift in Sources */,
+>>>>>>> Stashed changes
 				A04557082C06286E0023F08D /* QuizModel.swift in Sources */,
 				E614B9622C0F9BA500193F9E /* AnyHouse.swift in Sources */,
 				A04557062C0627EA0023F08D /* HouseModel.swift in Sources */,
