@@ -49,7 +49,7 @@ let housesData = [
                     ]
                 )
             ],
-            nextView: EmptyView()
+            nextView: SadActPresentingView()
         )
     )),
     AnyHouse(house: HouseModel(
@@ -198,4 +198,12 @@ var facesJoyAct : [FaceActModel] = [
     FaceActModel(imageName: "JoyActFace2", correct: false),
     FaceActModel(imageName: "JoyActFace0", correct: true)
     
+]
+
+
+var puzzles : [PuzzleModel] = [
+    PuzzleModel(image: "puzzle1", correct: false, dragged: false),
+    PuzzleModel(image: "puzzle2", correct: false, dragged: false),
+    PuzzleModel(image: "puzzle3", correct: true, dragged: false),
+    PuzzleModel(image: "puzzle4", correct: false, dragged: false)
 ]

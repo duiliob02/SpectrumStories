@@ -60,7 +60,7 @@ struct MapView: View {
                                 }, label: {
                                     Text("x")
                                         .foregroundStyle(.white)
-                                        .font(.custom(Constants.font, size: 60))
+                                        .font(.custom(Constants.font, size: 50))
                                         .bold()
                                         .padding(10)
                                         .padding(.horizontal,10)
@@ -80,8 +80,8 @@ struct MapView: View {
                             .multilineTextAlignment(.center)
                         }
                         .frame(width: geo.size.width/2, height: geo.size.height/2)
-                        .font(.custom(Constants.font, size: 50))
-                        .offset(y:geo.size.height/30)
+                        .font(.custom(Constants.font, size: 45))
+                        .offset(y:geo.size.height/20)
                         
                     }
                 }

@@ -117,13 +117,13 @@ struct HouseView<NextView: View>: View {
                                 }, label: {
                                     Text("x")
                                         .foregroundStyle(.white)
-                                        .font(.custom(Constants.font, size: 60))
+                                        .font(.custom(Constants.font, size: 50))
                                         .bold()
                                         .padding(10)
                                         .padding(.horizontal,10)
                                         .background{
                                             RoundedRectangle(cornerRadius: 10)
-                                                .fill(Color(hex: "9C8C00"))
+                                                .fill(Color(hex: "E26D5A"))
                                                 
                                         }
                                 })
@@ -137,8 +137,8 @@ struct HouseView<NextView: View>: View {
                             .foregroundStyle(Color(hex: "2F2F2F"))
                         }
                         .frame(width: geo.size.width/2, height: geo.size.height/2)
-                        .font(.custom(Constants.font, size: 50))
-                        .offset(y:geo.size.height/30)
+                        .font(.custom(Constants.font, size: 45))
+                        .offset(y:geo.size.height/20)
                         
                     }
                 }
