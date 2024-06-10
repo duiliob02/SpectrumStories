@@ -135,7 +135,7 @@ let housesData = [
                     ]
                 )
             ],
-            nextView: EmptyView()
+            nextView: AngActivityPresentationView()
         )
     )),
     AnyHouse(house: HouseModel(
