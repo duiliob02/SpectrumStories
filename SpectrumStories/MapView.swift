@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MapView: View {
     @AppStorage("gender") var gender = 42
+    @AppStorage("firstAccess") var access = true
     
     var houses: [AnyHouse]
     
@@ -44,7 +45,7 @@ struct MapView: View {
                 
             }
             .overlay {
-                if alert {
+                if access {
                     ZStack {
                         Rectangle()
                             .fill(.white.opacity(0.5))
@@ -56,6 +57,7 @@ struct MapView: View {
                                 Button(action: {
                                     withAnimation {
                                         alert.toggle()
+                                        access = false
                                     }
                                 }, label: {
                                     Text("x")
@@ -89,11 +91,7 @@ struct MapView: View {
         }
         .ignoresSafeArea()
         .navigationBarBackButtonHidden()
-        .onAppear(perform: {
-            withAnimation {
-                alert.toggle()
-            }
-        })
+        
         
     }
     

@@ -41,7 +41,7 @@ let housesData = [
                 ),
                 QuestionModel(
                     question: "Perché è triste?",
-                    correctAnsw: 2,
+                    correctAnsw: 0,
                     answers: [
                         "La mamma va via",
                         "Va' dal dottore",
@@ -78,7 +78,7 @@ let housesData = [
                     correctAnsw: 1,
                     answers: [
                         "Rabbia",
-                        "Felicità",
+                        "Felicità'",
                         "Tristezza"
                     ]
                 ),
@@ -86,9 +86,9 @@ let housesData = [
                     question: "Perché sono felici?",
                     correctAnsw: 2,
                     answers: [
-                        "Mangiano le caramelle",
+                        "Mangiano le \ncaramelle",
                         "Sono allo zoo",
-                        "Sono a un compleanno"
+                        "Sono a \nun compleanno"
                     ]
                 )
             ],
@@ -121,7 +121,7 @@ let housesData = [
                     correctAnsw: 0,
                     answers: [
                         "Rabbia",
-                        "Felicità",
+                        "Felicità'",
                         "Tristezza"
                     ]
                 ),

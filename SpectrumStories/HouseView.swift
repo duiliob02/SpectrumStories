@@ -50,7 +50,7 @@ struct HouseView<NextView: View>: View {
                     Text(house.titolo.uppercased())
                         .foregroundStyle(Color(hex: "2F2F2F"))
                         .font(.custom(Constants.font, size: 50))
-                        .position(CGPoint(x: geo.size.width/1.5, y: 100.0))
+                        .position(CGPoint(x: geo.size.width/2, y: 100.0))
                         .padding(.trailing)
                     Spacer()
                 }
@@ -189,7 +189,7 @@ struct Pavimento: Shape {
 
 
 #Preview {
-    HouseView<AnyView>(house: HouseModel(backgroundColour: "F8E59A", floorColour: "f2d434", object: "TorTavolo", titolo: "casa della gioia", storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", backCard: "JoyBackCard", quiz: QuizModel(storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", questions: [
+    HouseView<AnyView>(house: HouseModel(backgroundColour: "F8E59A", floorColour: "f2d434", object: "TorTavolo", titolo: "casa della gioia", storyCardM: "QuizJoy", storyCardF: "QuizJoy", backCard: "JoyBackCard", quiz: QuizModel(storyCardM: "QuizJoyM", storyCardF: "QuizJoyF", questions: [
         QuestionModel(
             question: "Dove sono i bambini?",
             correctAnsw: 0,

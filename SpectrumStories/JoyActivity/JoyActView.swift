@@ -58,7 +58,7 @@ struct JoyActView: View {
                     }
             }
                 if countFaces == 3 {
-                    AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Congratulazioni!", azione: "Fine", bgRectColor: .verdio), showAlert: $taskCompleted, nextView: JoyRewardView(), lastQuestion: true)
+                    AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Congratulazioni!", azione: "Fine", bgRectColor: Color(hex: "F2D434")), showAlert: $taskCompleted, nextView: JoyRewardView(), lastQuestion: true)
                 }
             
         }
