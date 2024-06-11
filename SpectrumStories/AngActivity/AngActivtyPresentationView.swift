@@ -19,7 +19,7 @@ struct AngActivtyPresentationView: View {
                         .font(.custom(Constants.font, size: 60))
                         .padding(.bottom, 70)
                     NavigationLink {
-                        EmptyView()
+                        AngActivityView()
                     } label : {
                         VStack {
                             showAsset(img: "AngEyes", _width: geo.size.width)
