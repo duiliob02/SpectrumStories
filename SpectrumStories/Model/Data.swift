@@ -57,12 +57,12 @@ let housesData = [
         floorColour: "F2D434",
         object: "TorTavolo",
         titolo: "Casa della Gioia",
-        storyCardM: "QuizJoyM",
-        storyCardF: "QuizJoyF",
+        storyCardM: "QuizJoy",
+        storyCardF: "QuizJoy",
         backCard: "JoyBackCard",
         quiz: QuizModel(
-            storyCardM: "QuizJoyM",
-            storyCardF: "QuizJoyF",
+            storyCardM: "QuizJoy",
+            storyCardF: "QuizJoy",
             questions: [
                 QuestionModel(
                     question: "Dove sono i bambini?",

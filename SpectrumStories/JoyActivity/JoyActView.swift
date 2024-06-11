@@ -58,7 +58,7 @@ struct JoyActView: View {
                     }
             }
                 if countFaces == 3 {
-                    AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Congratulazioni!\nOra torniamo alla mappa!", azione: "Ok", bgRectColor: .verdio), showAlert: $taskCompleted, nextView: MapView(houses: housesData), lastQuestion: true)
+                    AlertView(alert: AlertModel(imageM: "StickerM1", imageF: "StickerF1", testo: "Congratulazioni!", azione: "Fine", bgRectColor: .verdio), showAlert: $taskCompleted, nextView: JoyRewardView(), lastQuestion: true)
                 }
             
         }

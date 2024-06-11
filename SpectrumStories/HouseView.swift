@@ -99,6 +99,7 @@ struct HouseView<NextView: View>: View {
                 withAnimation {
                     alert.toggle()
                 }
+                isImageShown = false
             }
             .overlay {
                 if alert {
