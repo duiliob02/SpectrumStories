@@ -12,6 +12,7 @@ struct FlippingCard : View {
     let width : CGFloat
     @Binding var degree : Double
     
+    
     var body : some View {
         Image(imageName)
             .resizable()
@@ -37,6 +38,8 @@ struct HouseView<NextView: View>: View {
     let durationAndDelay = 0.5
     
     @State private var alert = false
+    
+    @AppStorage("accessHouse") var access = true
     
     var body: some View {
         
@@ -96,13 +99,11 @@ struct HouseView<NextView: View>: View {
             .ignoresSafeArea()
             .onAppear {
                 imageByGender = (gender == 0) ? house.storyCardM : house.storyCardF
-                withAnimation {
-                    alert.toggle()
-                }
+                
                 isImageShown = false
             }
             .overlay {
-                if alert {
+                if access {
                     ZStack {
                         Rectangle()
                             .fill(.white.opacity(0.5))
@@ -114,6 +115,7 @@ struct HouseView<NextView: View>: View {
                                 Button(action: {
                                     withAnimation {
                                         alert.toggle()
+                                        access = false
                                     }
                                 }, label: {
                                     Text("x")
