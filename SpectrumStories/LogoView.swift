@@ -25,11 +25,9 @@ struct LogoView: View {
                             .padding(.bottom, 50)
                         
                         NavigationLink {
-                            if gender != 42 {
-                                MapView(houses: housesData)
-                            } else {
-                                GenderView()
-                            }
+                            
+                            GenderView()
+                            
                         } label: {
                             ZStack {
                                 // Bottom layer

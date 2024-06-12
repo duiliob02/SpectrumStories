@@ -38,6 +38,7 @@ struct HouseView<NextView: View>: View {
     let durationAndDelay = 0.5
     
     @State private var alert = false
+    @State private var hasTimeElapsed = false
     
     @AppStorage("accessHouse") var access = true
     
@@ -65,6 +66,7 @@ struct HouseView<NextView: View>: View {
                     .scaledToFit()
                     .frame(height: geo.size.height / 2)
                     .position(CGPoint(x: geo.size.width / 9, y: geo.size.height / 1.3))
+                    .opacity(!isImageShown ? 1 : 0 )
                 
                 // Posizioni oggetti case
                 let notPurple = CGPoint(x: geo.size.width/2, y: geo.size.height/1.45)
@@ -74,8 +76,11 @@ struct HouseView<NextView: View>: View {
                     .scaledToFit()
                     .frame(height: geo.size.height/2.5)
                     .position((house.object != "Finestra") ? notPurple : purple)
+                    .opacity(!isImageShown ? 1 : 0 )
                     .onTapGesture {
-                        isImageShown.toggle()
+                        withAnimation {
+                            isImageShown.toggle()
+                        }
                     }
                 
                 if isImageShown {
@@ -91,6 +96,11 @@ struct HouseView<NextView: View>: View {
                     }
                     .navigationDestination(isPresented: $activateNav) {
                         QuizView(quiz: house.quiz, bgColour: Color(hex: house.floorColour))
+                    }
+                    .task {
+                        if isImageShown {
+                            await delayNavigation()
+                        }
                     }
                 }
                 
@@ -149,6 +159,10 @@ struct HouseView<NextView: View>: View {
         }
         
         
+    }
+    private func delayNavigation() async {
+            try? await Task.sleep(nanoseconds: 3_500_000_000)
+            activateNav = true
     }
     
     private func flipCard() {

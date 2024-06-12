@@ -37,7 +37,7 @@ struct MapView: View {
                     .frame(width: w*0.23)
                     .position(CGPoint(x: w/1.75, y: h*0.125))
                 
-                houseView(index: 0, width: w, height: h, position: CGPoint(x: w * 0.225, y: h / 4.8), isPresented: $nav1)
+                houseView(index: 0, width: w, height: h, position: CGPoint(x: w * 0.225, y: h / 4.5), isPresented: $nav1)
                 houseView(index: 1, width: w, height: h, position: CGPoint(x: w / 1.165, y: h * 0.23), isPresented: $nav2)
                 houseView(index: 2, width: w, height: h, position: CGPoint(x: w * 0.135, y: h / 1.75), isPresented: $nav3)
                 houseView(index: 3, width: w, height: h, position: CGPoint(x: w / 1.135, y: h / 1.46), isPresented: $nav4)
